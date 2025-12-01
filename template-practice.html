@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板背诵 - 英语六级作文学习系统</title>
+    <meta name="description" content="CET-6写作模板背诵和练习">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(to bottom right, #eff6ff, #c7d2fe);
+            min-height: 100vh;
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .template-content div:hover {
+            background-color: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <header class="bg-white shadow-sm">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="text-xl font-bold text-indigo-600">CET-6 写作学习</div>
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li><a href="index.html" class="text-gray-600 hover:text-indigo-600">首页</a></li>
+                        <li><a href="writing-guide.html" class="text-gray-600 hover:text-indigo-600">写作指导</a></li>
+                        <li><a href="template-practice.html" class="text-indigo-600 font-medium">模板背诵</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">在线练习</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">学习资源</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl text-gray-800 mb-2 text-center">模板背诵</h1>
+            <p class="text-gray-600 text-center mb-8">掌握各类写作模板，提升作文结构和表达能力</p>
+            
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-2xl shadow-sm p-6 mb-6 transition-all duration-300 hover:shadow-md">
+                        <h2 class="text-lg font-bold mb-4 text-indigo-700 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                            模板分类
+                        </h2>
+                        <ul class="space-y-2">
+                            <li>
+                                <button onclick="selectCategory('argumentation')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-indigo-600 font-medium bg-indigo-50 shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                    议论文模板
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="selectCategory('narration')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                    记叙文模板
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="selectCategory('exposition')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                    说明文模板
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="selectCategory('phrases')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                    常用词组短语
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-sm p-6 transition-all duration-300 hover:shadow-md">
+                        <h2 class="text-lg font-bold mb-4 text-indigo-700 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                            学习建议
+                        </h2>
+                        <div class="bg-blue-50 rounded-xl p-4 mb-4">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                建议选择一个模板类型，仔细研读并尝试背诵。掌握不同类型的模板有助于在考试中快速构思文章结构。
+                            </p>
+                        </div>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                            </svg>
+                            学习时长建议：20-30分钟
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/4">
+                    <div class="bg-white rounded-2xl shadow-sm p-6 transition-all duration-300 hover:shadow-md mb-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 pb-4 border-b border-gray-100">
+                            <div>
+                                <h2 id="category-title" class="text-2xl font-bold text-gray-800 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                                    </svg>
+                                    议论文模板
+                                </h2>
+                                <p id="category-description" class="text-gray-600 text-sm mt-1">
+                                    掌握这些模板，助你快速构建文章框架
+                                </p>
+                            </div>
+                            <div class="mt-3 md:mt-0">
+                                <span id="template-count" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                    5 个模板
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div id="templates-container">
+                            <!-- 模板内容将通过JavaScript动态加载 -->
+                        </div>
+                        
+                        <div class="mt-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-sm p-6 text-white">
+                            <h3 class="text-xl font-bold mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                                背诵技巧
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-xs font-bold">1</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-3 text-indigo-100 text-sm">先理解模板结构，再逐句背诵</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-xs font-bold">2</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-3 text-indigo-100 text-sm">多次重复朗读，加深记忆</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-xs font-bold">3</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-3 text-indigo-100 text-sm">尝试用自己的话替换空格内容进行练习</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-xs font-bold">4</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-3 text-indigo-100 text-sm">定期复习已掌握的模板，防止遗忘</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phrase Modal -->
+        <div id="phrase-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+            <div class="bg-white rounded-2xl shadow-lg max-w-md w-full p-6 transform transition-all duration-300 scale-95">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">短语详情</h3>
+                    <button onclick="closePhraseModal()" class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex items-center mb-2">
+                            <h4 class="font-semibold text-gray-700">短语：</h4>
+                            <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                重点
+                            </span>
+                        </div>
+                        <p id="phrase-text" class="text-gray-800 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100 font-medium">
+                            <!-- 短语内容 -->
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-2">中文含义：</h4>
+                        <p id="phrase-meaning" class="text-gray-800 bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl border border-green-100">
+                            <!-- 中文含义 -->
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-2">例句：</h4>
+                        <p id="phrase-example" class="text-gray-800 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100 italic">
+                            <!-- 例句 -->
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex justify-end">
+                    <button onclick="closePhraseModal()" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800 text-white py-6 mt-8">
+            <div class="container mx-auto px-4">
+                <div class="text-center text-sm">
+                    <p>CET-6 写作学习系统 &copy; 2025</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // 模板数据
+        const templates = {
+            argumentation: {
+                name: "议论文模板",
+                description: "掌握这些模板，助你快速构建文章框架",
+                templates: [
+                    {
+                        id: 'arg1',
+                        title: '观点阐述型',
+                        description: '适用于表达个人观点并论证的题目',
+                        content: `Nowadays, [现象] has become a hot topic among people. Some people believe that [观点1], while others argue that [观点2]. As far as I am concerned, I firmly believe that [你的观点].
+
+There are several reasons why I hold this view. To begin with, [理由1]. For example, [例子1]. Furthermore, [理由2]. A good case in point is [例子2]. Last but not least, [理由3], which [说明].
+
+In conclusion, [重申观点]. Therefore, we should [建议]. Only in this way can we [期望的结果].`
+                    },
+                    {
+                        id: 'arg2',
+                        title: '利弊分析型',
+                        description: '适用于分析事物利弊的题目',
+                        content: `With the development of modern society, [现象] plays an increasingly important role in our daily life. However, just like everything else, it has both advantages and disadvantages.
+
+On the one hand, there are several benefits of [主题]. First and foremost, [优点1], which [说明]. In addition, [优点2], enabling us to [结果]. Moreover, [优点3] contributes to [结果].
+
+On the other hand, we should not turn a blind eye to the problems caused by [主题]. To start with, [缺点1], which may [后果]. What's more, [缺点2] can lead to [后果]. Worst of all, [缺点3] poses a threat to [受影响的对象].
+
+Weighing the pros and cons of [主题], I tend to believe that its merits outweigh its demerits. Nevertheless, it is essential for us to [建议]. Only by doing so can we [期望的结果].`
+                    },
+                    {
+                        id: 'arg3',
+                        title: '问题解决型',
+                        description: '适用于分析问题并提出解决方案的题目',
+                        content: `[问题] has become increasingly serious in today's society, which has aroused great concern among the public. There are several factors contributing to this phenomenon.
+
+The first and most important reason is [原因1]. Due to [具体说明], more and more people are [行为变化]. Moreover, [原因2] also plays a significant role. With [条件], it is natural that [结果].
+
+To solve this problem effectively, several measures should be taken. First of all, [措施1] should be implemented to [目的]. Additionally, [措施2] is also of great importance because [原因]. Last but not least, [措施3] can help us [效果].
+
+In conclusion, [问题] is a complex issue that requires our joint efforts. As long as we take effective actions, we can [期望的结果].`
+                    },
+                    {
+                        id: 'arg4',
+                        title: '对比选择型',
+                        description: '适用于比较两种观点并选择其一的题目',
+                        content: `When it comes to [话题], people's opinions are divided. Some people argue that [观点A], while others maintain that [观点B].
+
+Those who favor [观点A] believe that [理由1]. For instance, [例子]. Moreover, [理由2], which [说明]. From their perspective, [进一步解释].
+
+However, people who advocate [观点B] hold that [理由1]. A case in point is [例子]. Besides, [理由2] also [说明]. In their opinion, [进一步解释].
+
+Weighing the pros and cons of both sides, I tend to support the former/latter view for the following reasons. First and foremost, [理由1]. Furthermore, [理由2]. Most importantly, [理由3].
+
+Therefore, as far as I am concerned, [重申观点]. It is advisable for us to [建议].`
+                    },
+                    {
+                        id: 'arg5',
+                        title: '谚语寓意型',
+                        description: '适用于解释谚语或名言含义的题目',
+                        content: `[谚语/名言] is an old yet familiar saying to all of us. This saying is particularly thought-provoking and carries profound meaning.
+
+To understand the essence of this saying, we should first explore what it means. Obviously, it emphasizes the importance of [关键词]. In fact, [解释含义].
+
+A perfect example that demonstrates the wisdom of this saying is [例子]. In this case, [分析例子]. What's more, we can find similar cases in our daily life. For instance, [另一个例子].
+
+From what has been discussed above, we can safely draw the conclusion that [重申含义]. In the contemporary society, [现实意义]. Therefore, we should [建议].`
+                    }
+                ]
+            },
+            narration: {
+                name: "记叙文模板",
+                description: "掌握这些模板，助你快速构建文章框架",
+                templates: [
+                    {
+                        id: 'nar1',
+                        title: '故事叙述型',
+                        description: '适用于叙述事件或经历的题目',
+                        content: `It was a/an [形容词] [时间] when [事件背景]. I still remember it as clearly as if it had happened yesterday.
+
+The story began when [事件起因]. At that time, [具体情况]. Suddenly, [转折点], which [影响]. As a result, [结果].
+
+During the process, I learned that [学到的道理]. This experience taught me [人生感悟]. From this incident, I realized that [深刻体会].
+
+Looking back on this experience, I feel [感受]. It has become a precious memory in my life, reminding me to [启示].`
+                    },
+                    {
+                        id: 'nar2',
+                        title: '人物描述型',
+                        description: '适用于描述人物的题目',
+                        content: `Among all the people I have met in my life, [人物] is the one who has impressed me most deeply. There are several reasons why I hold this view.
+
+To begin with, [人物] is characterized by [性格特点1], which is clearly demonstrated in [具体表现]. For example, [例子]. Moreover, what further distinguishes [人物] from others is [性格特点2]. A typical example is [例子].
+
+What's more, [人物] possesses [性格特点3], which [说明]. This is particularly evident when [例子]. 
+
+In conclusion, [人物] is such a/an [形容词] person that [结果]. I have learned a lot from [人物], especially [学到的品质].`
+                    },
+                    {
+                        id: 'nar3',
+                        title: '活动描述型',
+                        description: '适用于描述活动或比赛的题目',
+                        content: `It was a/an [形容词] [活动名称] that took place in [地点] on [时间]. The event left a deep impression on all participants.
+
+The activity began with [活动开始]. During this process, [具体过程]. What made the event most exciting was [高潮部分], which [影响].
+
+Throughout the activity, I learned that [学到的道理]. This experience taught me [人生感悟]. From this event, I realized that [深刻体会].
+
+Looking back on this experience, I feel [感受]. It has become a precious memory in my life, reminding me to [启示].`
+                    }
+                ]
+            },
+            exposition: {
+                name: "说明文模板",
+                description: "掌握这些模板，助你快速构建文章框架",
+                templates: [
+                    {
+                        id: 'exp1',
+                        title: '现象解释型',
+                        description: '适用于解释现象或问题的题目',
+                        content: `[现象] has become increasingly common in modern society. A number of factors contribute to this phenomenon.
+
+The first and most important reason is [原因1]. Due to [具体说明], more and more people are [行为变化]. Moreover, [原因2] also plays a significant role. With [条件], it is natural that [结果].
+
+In addition, we cannot ignore the impact of [原因3]. As [情况] becomes more prevalent, [进一步的结果].
+
+As far as I am concerned, this trend is [态度]. On the one hand, it reflects [积极意义]. On the other hand, we should be aware of [潜在问题]. Therefore, it is advisable for us to [建议].`
+                    },
+                    {
+                        id: 'exp2',
+                        title: '图表描述型',
+                        description: '适用于描述图表数据的题目',
+                        content: `The chart clearly illustrates the changes in [主题] in [地点] from [起始年份] to [结束年份]. Several notable trends can be observed from the data.
+
+To begin with, there was a steady increase in [指标] from [年份] to [年份], rising from [数值] to [数值]. This upward trend continued until [年份], when it reached a peak of [数值]. 
+
+In contrast, [指标] showed a different pattern. It experienced a sharp decline from [年份] to [年份], dropping from [数值] to [数值]. After that, it remained stable at around [数值] for several years.
+
+What accounts for these changes? Several factors might be responsible. Firstly, [原因1]. Secondly, [原因2]. Finally, [原因3].
+
+In conclusion, the chart reveals significant changes in [主题] over the past decades. It is predicted that this trend will [预测].`
+                    },
+                    {
+                        id: 'exp3',
+                        title: '事物介绍型',
+                        description: '适用于介绍事物或技术的题目',
+                        content: `[事物] is a/an [形容词] [类别] that has gained widespread attention in recent years. It is of great significance in [领域].
+
+To begin with, [事物] is characterized by [特点1], which [说明]. For example, [例子]. Moreover, what makes [事物] unique is [特点2]. A typical illustration is [例子].
+
+What's more, [事物] possesses [特点3], which [说明]. This is particularly evident when [例子].
+
+Since [事物] plays such an important role, it is essential for us to [建议]. Only in this way can we [期望的结果].`
+                    },
+                    {
+                        id: 'exp4',
+                        title: '措施方法型',
+                        description: '适用于介绍方法或措施的题目',
+                        content: `[方法/措施] is of utmost importance in [领域]. There are several effective ways to [目的].
+
+First and foremost, we should [方法1], which can [效果]. For instance, [例子]. Furthermore, it is also crucial to [方法2], enabling us to [效果]. Moreover, [方法3] contributes to [效果].
+
+In addition to the above measures, we cannot ignore the significance of [方法4]. As [情况] becomes more common, [效果].
+
+In conclusion, [重申重要性]. Therefore, it is advisable for us to [建议]. Only by doing so can we [期望的结果].`
+                    }
+                ]
+            },
+            phrases: {
+                name: "常用词组短语",
+                description: "点击短语查看详细用法和例句",
+                templates: [
+                    {
+                        id: 'phrases1',
+                        title: '引言开头',
+                        description: '用于文章开头的常用表达',
+                        content: [
+                            {
+                                phrase: "Nowadays, ... has become a hot topic among people.",
+                                meaning: "如今，...已成为人们热议的话题。",
+                                example: "Nowadays, online learning has become a hot topic among people."
+                            },
+                            {
+                                phrase: "With the development of modern society, ...",
+                                meaning: "随着现代社会的发展，...",
+                                example: "With the development of modern society, artificial intelligence plays an increasingly important role in our daily life."
+                            },
+                            {
+                                phrase: "It is universally acknowledged that ...",
+                                meaning: "众所周知，...",
+                                example: "It is universally acknowledged that health is more important than wealth."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases2',
+                        title: '观点表达',
+                        description: '用于表达观点的常用表达',
+                        content: [
+                            {
+                                phrase: "As far as I am concerned, ...",
+                                meaning: "就我而言，...",
+                                example: "As far as I am concerned, online education has more advantages than disadvantages."
+                            },
+                            {
+                                phrase: "From my perspective, ...",
+                                meaning: "从我的角度来看，...",
+                                example: "From my perspective, reading books is more beneficial than watching TV."
+                            },
+                            {
+                                phrase: "I firmly believe that ...",
+                                meaning: "我坚信...",
+                                example: "I firmly believe that hard work is the key to success."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases3',
+                        title: '论证连接',
+                        description: '用于连接论点的常用表达',
+                        content: [
+                            {
+                                phrase: "To begin with, ...",
+                                meaning: "首先，...",
+                                example: "To begin with, regular exercise can improve our physical health significantly."
+                            },
+                            {
+                                phrase: "Furthermore, ...",
+                                meaning: "此外，...",
+                                example: "Furthermore, exercise also helps to reduce stress and improve mental health."
+                            },
+                            {
+                                phrase: "Last but not least, ...",
+                                meaning: "最后但同样重要的是，...",
+                                example: "Last but not least, participating in sports can help us make more friends."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases4',
+                        title: '举例说明',
+                        description: '用于举例的常用表达',
+                        content: [
+                            {
+                                phrase: "A good case in point is ...",
+                                meaning: "一个很好的例子是...",
+                                example: "A good case in point is the development of high-speed rail in China."
+                            },
+                            {
+                                phrase: "For example, ...",
+                                meaning: "例如，...",
+                                example: "For example, many universities now offer online courses for students."
+                            },
+                            {
+                                phrase: "Take ... as an example",
+                                meaning: "以...为例",
+                                example: "Take the mobile payment system as an example, it has greatly facilitated our daily life."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases5',
+                        title: '结论总结',
+                        description: '用于总结结论的常用表达',
+                        content: [
+                            {
+                                phrase: "In conclusion, ...",
+                                meaning: "总之，...",
+                                example: "In conclusion, technology brings us both opportunities and challenges."
+                            },
+                            {
+                                phrase: "To sum up, ...",
+                                meaning: "总而言之，...",
+                                example: "To sum up, we should make full use of technology while avoiding its negative effects."
+                            },
+                            {
+                                phrase: "Only in this way can we ...",
+                                meaning: "只有这样我们才能...",
+                                example: "Only in this way can we build a harmonious society."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases6',
+                        title: '表示因果',
+                        description: '用于表达因果关系的常用表达',
+                        content: [
+                            {
+                                phrase: "As a result, ...",
+                                meaning: "结果是...",
+                                example: "He didn't study hard. As a result, he failed the exam."
+                            },
+                            {
+                                phrase: "Due to ..., ...",
+                                meaning: "由于...，...",
+                                example: "Due to the heavy rain, the football match was postponed."
+                            },
+                            {
+                                phrase: "This is because ...",
+                                meaning: "这是由于...",
+                                example: "More and more people choose to shop online. This is because it is more convenient."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases7',
+                        title: '表示转折',
+                        description: '用于表达转折关系的常用表达',
+                        content: [
+                            {
+                                phrase: "However, ...",
+                                meaning: "然而...",
+                                example: "The plan seemed perfect. However, it failed in practice."
+                            },
+                            {
+                                phrase: "On the contrary, ...",
+                                meaning: "相反...",
+                                example: "Many people think online courses are less effective. On the contrary, studies show they can be equally beneficial."
+                            },
+                            {
+                                phrase: "Nevertheless, ...",
+                                meaning: "尽管如此...",
+                                example: "The task was extremely difficult. Nevertheless, we completed it on time."
+                            }
+                        ]
+                    },
+                    {
+                        id: 'phrases8',
+                        title: '表示递进',
+                        description: '用于表达递进关系的常用表达',
+                        content: [
+                            {
+                                phrase: "What's more, ...",
+                                meaning: "而且...",
+                                example: "Regular exercise improves our physical health. What's more, it also helps reduce stress."
+                            },
+                            {
+                                phrase: "Moreover, ...",
+                                meaning: "此外...",
+                                example: "Reading can broaden our knowledge. Moreover, it enhances our language skills."
+                            },
+                            {
+                                phrase: "In addition, ...",
+                                meaning: "另外...",
+                                example: "The museum has a rich collection of ancient artifacts. In addition, it offers educational programs for students."
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // 当前选中的分类
+        let selectedCategory = 'argumentation';
+        let showTemplate = null;
+        let memorizedTemplates = new Set();
+
+        // 选择分类
+        function selectCategory(category) {
+            selectedCategory = category;
+            showTemplate = null;
+            
+            // 更新分类按钮样式
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('text-indigo-600', 'font-medium', 'bg-indigo-50', 'shadow-sm');
+                btn.classList.add('text-gray-600', 'hover:text-indigo-600', 'hover:bg-gray-50');
+            });
+            
+            event.target.classList.add('text-indigo-600', 'font-medium', 'bg-indigo-50', 'shadow-sm');
+            event.target.classList.remove('text-gray-600', 'hover:text-indigo-600', 'hover:bg-gray-50');
+            
+            // 更新标题和描述
+            document.getElementById('category-title').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                </svg>
+                ${templates[category].name}
+            `;
+            
+            document.getElementById('category-description').textContent = templates[category].description;
+            document.getElementById('template-count').textContent = `${templates[category].templates.length} 个模板`;
+            
+            // 渲染模板
+            renderTemplates();
+        }
+
+        // 渲染模板
+        function renderTemplates() {
+            const container = document.getElementById('templates-container');
+            const currentTemplates = templates[selectedCategory].templates;
+            
+            if (selectedCategory !== 'phrases') {
+                container.innerHTML = `
+                    <div class="space-y-5">
+                        ${currentTemplates.map(template => `
+                            <div class="border border-gray-200 rounded-2xl p-5 hover:shadow-md transition-all duration-300">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-lg font-semibold text-gray-800">${template.title}</h3>
+                                    <button onclick="toggleTemplate('${template.id}')" class="px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200 flex items-center ${memorizedTemplates.has(template.id) ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
+                                        ${memorizedTemplates.has(template.id) ? `
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            已掌握
+                                        ` : '标记掌握'}
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">${template.description}</p>
+                                
+                                <div class="mb-4">
+                                    <button onclick="toggleTemplateView('${template.id}')" class="flex items-center text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                        </svg>
+                                        ${showTemplate === template.id ? '隐藏模板' : '查看模板'}
+                                    </button>
+                                </div>
+                                
+                                ${showTemplate === template.id ? `
+                                    <div class="bg-white p-6 rounded-2xl border border-gray-200 mt-3 shadow-lg transform transition-all duration-300 hover:shadow-xl animate-fade-in-up">
+                                        <div class="flex items-center justify-between mb-4">
+                                            <h4 class="text-lg font-bold text-indigo-700">模板内容</h4>
+                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                                点击空白处关闭
+                                            </span>
+                                        </div>
+                                        <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-100 font-sans template-content">
+                                            ${template.content.split('\n').map(line => `
+                                                <div class="mb-3 last:mb-0 text-gray-700 text-sm leading-relaxed py-2 px-4 rounded-lg">
+                                                    ${line || '<span class="inline-block w-full h-4">&nbsp;</span>'}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="mt-4 flex justify-end">
+                                            <button onclick="toggleTemplateView('${template.id}')" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 font-medium shadow-md">
+                                                关闭模板
+                                            </button>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="space-y-5">
+                        ${currentTemplates.map(phraseGroup => `
+                            <div class="border border-gray-200 rounded-2xl p-5 hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">${phraseGroup.title}</h3>
+                                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        ${phraseGroup.content.length} 个短语
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">${phraseGroup.description}</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    ${phraseGroup.content.map((phrase, index) => `
+                                        <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200 cursor-pointer hover:from-indigo-50 hover:to-purple-50 transition-all duration-200 transform hover:-translate-y-0.5" onclick='showPhraseModal(${JSON.stringify(phrase)})'>
+                                            <p class="font-medium text-gray-800 mb-2 text-sm">${phrase.phrase}</p>
+                                            <p class="text-gray-600 text-xs">${phrase.meaning}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+        }
+
+        // 切换模板显示
+        function toggleTemplateView(templateId) {
+            showTemplate = showTemplate === templateId ? null : templateId;
+            renderTemplates();
+        }
+
+        // 切换模板掌握状态
+        function toggleTemplate(templateId) {
+            if (memorizedTemplates.has(templateId)) {
+                memorizedTemplates.delete(templateId);
+            } else {
+                memorizedTemplates.add(templateId);
+            }
+            renderTemplates();
+        }
+
+        // 显示短语详情模态框
+        function showPhraseModal(phrase) {
+            document.getElementById('phrase-text').textContent = phrase.phrase;
+            document.getElementById('phrase-meaning').textContent = phrase.meaning;
+            document.getElementById('phrase-example').textContent = `"${phrase.example}"`;
+            document.getElementById('phrase-modal').classList.remove('hidden');
+        }
+
+        // 关闭短语详情模态框
+        function closePhraseModal() {
+            document.getElementById('phrase-modal').classList.add('hidden');
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加分类按钮的类名以便于选择
+            const categoryButtons = document.querySelectorAll('button[onclick^="selectCategory"]');
+            categoryButtons.forEach(button => {
+                button.classList.add('category-btn');
+            });
+            
+            // 初始化显示第一个分类的模板
+            renderTemplates();
+        });
+
+        // 点击模态框外部关闭模态框
+        document.getElementById('phrase-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closePhraseModal();
+            }
+        });
+    </script>
+</body>
+</html>
