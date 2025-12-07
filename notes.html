@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记整理 - 英语六级学习系统</title>
+    <meta name="description" content="个人英语学习笔记整理工具">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/notes.css">
+    <style>
+        @font-face {
+            font-family: 'FZCuHei';
+            src: url('./public/fonts/FZCuHei.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'FZCuHei', sans-serif;
+            background: linear-gradient(to bottom right, #eff6ff, #c7d2fe);
+            min-height: 100vh;
+        }
+        
+        .note-card {
+            transition: all 0.3s ease;
+        }
+        
+        .note-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expandable-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .expandable-section.expanded {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gray-50">
+        <header class="bg-white shadow-sm sticky top-0 z-10">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="text-xl font-semibold text-indigo-600">CET-6 学习笔记</div>
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li><a href="index.html" class="text-gray-600 hover:text-indigo-600 transition-colors">首页</a></li>
+                        <li><a href="writing-guide.html" class="text-gray-600 hover:text-indigo-600 transition-colors">写作指导</a></li>
+                        <li><a href="template-practice.html" class="text-gray-600 hover:text-indigo-600 transition-colors">模板背诵</a></li>
+                        <li><a href="notes.html" class="text-indigo-600 font-medium">笔记整理</a></li>
+                        <li><a href="roots.html" class="text-gray-600 hover:text-indigo-600 transition-colors">词根词缀</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-gray-800 mb-3">学习笔记整理</h1>
+                <p class="text-gray-600 text-lg">整理你的英语学习笔记，提高学习效率</p>
+            </div>
+            
+            <!-- 添加笔记表单 -->
+            <div class="bg-white rounded-2xl shadow-lg mb-8 note-card">
+                <div 
+                    class="px-6 py-4 bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer flex justify-between items-center"
+                    onclick="toggleSection('form')"
+                >
+                    <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-indigo-100 text-indigo-800">
+                            添加新笔记
+                        </span>
+                    </h2>
+                    <svg 
+                        class="h-5 w-5 text-indigo-600 toggle-icon"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                        id="form-toggle-icon"
+                    >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                
+                <div id="form-section" class="expandable-section expanded">
+                    <div class="p-6 border-t border-gray-100">
+                        <form id="note-form" class="space-y-4">
+                            <div>
+                                <label for="note-title" class="block text-sm font-medium text-gray-700 mb-1">标题</label>
+                                <input 
+                                    type="text" 
+                                    id="note-title" 
+                                    name="title" 
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                    placeholder="输入笔记标题..."
+                                >
+                            </div>
+                            
+                            <div>
+                                <label for="note-category" class="block text-sm font-medium text-gray-700 mb-1">分类</label>
+                                <select 
+                                    id="note-category" 
+                                    name="category" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                >
+                                    <option value="vocabulary">词汇</option>
+                                    <option value="grammar">语法</option>
+                                    <option value="writing">写作</option>
+                                    <option value="listening">听力</option>
+                                    <option value="reading">阅读</option>
+                                    <option value="translation">翻译</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="note-content" class="block text-sm font-medium text-gray-700 mb-1">内容</label>
+                                <textarea 
+                                    id="note-content" 
+                                    name="content" 
+                                    rows="5" 
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                    placeholder="输入笔记内容..."
+                                ></textarea>
+                            </div>
+                            
+                            <div class="flex justify-end">
+                                <button 
+                                    type="submit"
+                                    class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-105"
+                                >
+                                    添加笔记
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 笔记列表 -->
+            <div class="bg-white rounded-2xl shadow-lg note-card">
+                <div 
+                    class="px-6 py-4 bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer flex justify-between items-center"
+                    onclick="toggleSection('notes')"
+                >
+                    <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-indigo-100 text-indigo-800">
+                            我的笔记
+                        </span>
+                        <span id="notes-count" class="text-gray-500 text-base ml-2">(0 条笔记)</span>
+                    </h2>
+                    <svg 
+                        class="h-5 w-5 text-indigo-600 toggle-icon"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                        id="notes-toggle-icon"
+                    >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                
+                <div id="notes-section" class="expandable-section expanded">
+                    <div class="p-6 border-t border-gray-100">
+                        <div id="notes-container" class="space-y-4">
+                            <!-- 笔记将在这里动态加载 -->
+                            <div class="text-center py-10 text-gray-500" id="no-notes-message">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium">暂无笔记</h3>
+                                <p class="mt-1 text-sm">开始添加你的第一条学习笔记吧！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white border-t border-gray-200 mt-12">
+            <div class="container mx-auto px-4 py-6">
+                <p class="text-center text-gray-500 text-sm">
+                    © 2025 CET-6 英语学习系统. 保留所有权利.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 切换展开/收起状态
+        function toggleSection(sectionId) {
+            const section = document.getElementById(`${sectionId}-section`);
+            const icon = document.getElementById(`${sectionId}-toggle-icon`);
+            
+            section.classList.toggle('expanded');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 笔记数据存储
+        let notes = JSON.parse(localStorage.getItem('cet6-notes')) || [];
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNotes();
+            
+            // 表单提交事件
+            document.getElementById('note-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const title = document.getElementById('note-title').value;
+                const category = document.getElementById('note-category').value;
+                const content = document.getElementById('note-content').value;
+                
+                addNote(title, category, content);
+                
+                // 清空表单
+                this.reset();
+            });
+        });
+
+        // 添加笔记
+        function addNote(title, category, content) {
+            const note = {
+                id: Date.now(),
+                title: title,
+                category: category,
+                content: content,
+                date: new Date().toLocaleString('zh-CN')
+            };
+            
+            notes.unshift(note);
+            saveNotes();
+            loadNotes();
+        }
+
+        // 删除笔记
+        function deleteNote(id) {
+            if (confirm('确定要删除这条笔记吗？')) {
+                notes = notes.filter(note => note.id !== id);
+                saveNotes();
+                loadNotes();
+            }
+        }
+
+        // 保存笔记到本地存储
+        function saveNotes() {
+            localStorage.setItem('cet6-notes', JSON.stringify(notes));
+        }
+
+        // 加载并显示笔记
+        function loadNotes() {
+            const container = document.getElementById('notes-container');
+            const countElement = document.getElementById('notes-count');
+            const noNotesMessage = document.getElementById('no-notes-message');
+            
+            // 更新笔记数量
+            countElement.textContent = `(${notes.length} 条笔记)`;
+            
+            if (notes.length === 0) {
+                noNotesMessage.style.display = 'block';
+                container.innerHTML = '';
+                container.appendChild(noNotesMessage);
+                return;
+            }
+            
+            noNotesMessage.style.display = 'none';
+            
+            // 渲染笔记列表
+            container.innerHTML = notes.map(note => `
+                <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition-colors">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-800">${note.title}</h3>
+                            <span class="inline-block mt-1 px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                                ${getCategoryLabel(note.category)}
+                            </span>
+                        </div>
+                        <button 
+                            onclick="deleteNote(${note.id})"
+                            class="text-gray-400 hover:text-red-500 transition-colors"
+                            title="删除笔记"
+                        >
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="mt-3 text-gray-600 whitespace-pre-wrap">${note.content}</p>
+                    <div class="mt-3 text-sm text-gray-500">${note.date}</div>
+                </div>
+            `).join('');
+        }
+
+        // 获取分类标签文本
+        function getCategoryLabel(category) {
+            const labels = {
+                'vocabulary': '词汇',
+                'grammar': '语法',
+                'writing': '写作',
+                'listening': '听力',
+                'reading': '阅读',
+                'translation': '翻译',
+                'other': '其他'
+            };
+            
+            return labels[category] || '其他';
+        }
+    </script>
+</body>
+</html>

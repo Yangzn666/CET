@@ -7,10 +7,16 @@
     <meta name="description" content="个人CET-6写作学习系统">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        @font-face {
+            font-family: 'FZCuHei';
+            src: url('../public/fonts/FZCuHei.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
         
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: 'FZCuHei', sans-serif;
             background: linear-gradient(to bottom right, #eff6ff, #c7d2fe);
             min-height: 100vh;
         }
@@ -35,11 +41,12 @@
     <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <header class="bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <div class="text-xl font-bold text-indigo-600">CET-6 写作学习</div>
+                <div class="text-xl text-indigo-600">CET-6 写作学习</div>
                 <nav>
                     <ul class="flex space-x-4">
-                        <li><a href="index.html" class="text-indigo-600 font-medium">首页</a></li>
+                        <li><a href="index.html" class="text-indigo-600">首页</a></li>
                         <li><a href="writing-guide.html" class="text-gray-600 hover:text-indigo-600">写作指导</a></li>
+                        <li><a href="template-practice.html" class="text-gray-600 hover:text-indigo-600">模板背诵</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-indigo-600">在线练习</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-indigo-600">学习资源</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-indigo-600">学习计划</a></li>
@@ -67,27 +74,34 @@
             </section>
 
             <section class="py-10">
-                <h2 class="text-2xl font-bold text-center text-gray-800 mb-10">学习模块</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <h2 class="text-2xl text-center text-gray-800 mb-10">学习模块</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition duration-300">
                         <div class="text-indigo-600 text-3xl mb-3">📖</div>
-                        <h3 class="text-lg font-semibold mb-2">写作指导</h3>
+                        <h3 class="text-lg mb-2">写作指导</h3>
                         <p class="text-gray-600 text-sm">
                             系统学习写作技巧和范文分析
                         </p>
                     </div>
                     <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition duration-300">
                         <div class="text-indigo-600 text-3xl mb-3">✍️</div>
-                        <h3 class="text-lg font-semibold mb-2">在线练习</h3>
+                        <h3 class="text-lg mb-2">模板背诵</h3>
                         <p class="text-gray-600 text-sm">
-                            实时写作练习和自我评估
+                            背诵优秀作文模板和句型
                         </p>
                     </div>
                     <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-                        <div class="text-indigo-600 text-3xl mb-3">📊</div>
-                        <h3 class="text-lg font-semibold mb-2">学习追踪</h3>
+                        <div class="text-indigo-600 text-3xl mb-3">📚</div>
+                        <h3 class="text-lg mb-2">笔记整理</h3>
                         <p class="text-gray-600 text-sm">
-                            记录学习进度和成长轨迹
+                            个人学习笔记和要点整理
+                        </p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                        <div class="text-indigo-600 text-3xl mb-3">🔤</div>
+                        <h3 class="text-lg mb-2">词根词缀</h3>
+                        <p class="text-gray-600 text-sm">
+                            学习词根词缀扩展词汇量
                         </p>
                     </div>
                 </div>
