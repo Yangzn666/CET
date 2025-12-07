@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'FZCuHei';
-            src: url('../public/fonts/FZCuHei.ttf') format('truetype');
+            src: url('./public/fonts/FZCuHei.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -17,6 +17,7 @@
         
         body {
             font-family: 'FZCuHei', sans-serif;
+            font-weight: normal;
             background: linear-gradient(to bottom right, #eff6ff, #c7d2fe);
             min-height: 100vh;
         }
@@ -28,13 +29,13 @@
         }
         
         .animate-fade-in-up {
-            animation: fadeInUp 0.3s ease-out;
+            animation: fadeInUp 0.5s ease-out;
         }
         
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -42,9 +43,51 @@
             }
         }
         
+        .template-card {
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .template-content div {
+            transition: all 0.2s ease;
+            border-radius: 12px;
+        }
+        
         .template-content div:hover {
             background-color: #fff;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .phrase-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+        
+        .phrase-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .modal-content {
+            border-radius: 20px;
+            animation: modalAppear 0.3s ease-out;
+        }
+        
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -71,42 +114,42 @@
             
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="lg:w-1/4">
-                    <div class="bg-white rounded-2xl shadow-sm p-6 mb-6 transition-all duration-300 hover:shadow-md">
-                        <h2 class="text-lg mb-4 text-indigo-700 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 transition-all duration-300 hover:shadow-xl">
+                        <h2 class="text-xl mb-4 text-indigo-700 flex items-center font-bold">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                             </svg>
                             模板分类
                         </h2>
-                        <ul class="space-y-2">
+                        <ul class="space-y-3">
                             <li>
-                                <button onclick="selectCategory('argumentation')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-indigo-600 font-medium bg-indigo-50 shadow-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                <button onclick="selectCategory('argumentation')" class="w-full text-left flex items-center px-5 py-4 rounded-2xl transition-all duration-300 text-indigo-700 font-bold bg-gradient-to-r from-indigo-50 to-purple-50 shadow-sm border border-indigo-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                                     </svg>
                                     议论文模板
                                 </button>
                             </li>
                             <li>
-                                <button onclick="selectCategory('narration')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                <button onclick="selectCategory('narration')" class="w-full text-left flex items-center px-5 py-4 rounded-2xl transition-all duration-300 text-gray-700 hover:text-indigo-700 hover:bg-gradient-to-r from-gray-50 to-indigo-50 border border-gray-100 hover:border-indigo-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                     </svg>
                                     记叙文模板
                                 </button>
                             </li>
                             <li>
-                                <button onclick="selectCategory('exposition')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                <button onclick="selectCategory('exposition')" class="w-full text-left flex items-center px-5 py-4 rounded-2xl transition-all duration-300 text-gray-700 hover:text-indigo-700 hover:bg-gradient-to-r from-gray-50 to-indigo-50 border border-gray-100 hover:border-indigo-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                     </svg>
                                     说明文模板
                                 </button>
                             </li>
                             <li>
-                                <button onclick="selectCategory('phrases')" class="w-full text-left flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-gray-600 hover:text-indigo-600 hover:bg-gray-50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                <button onclick="selectCategory('phrases')" class="w-full text-left flex items-center px-5 py-4 rounded-2xl transition-all duration-300 text-gray-700 hover:text-indigo-700 hover:bg-gradient-to-r from-gray-50 to-indigo-50 border border-gray-100 hover:border-indigo-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                     </svg>
                                     常用词组短语
                                 </button>
@@ -114,91 +157,161 @@
                         </ul>
                     </div>
                     
-                    <div class="bg-white rounded-2xl shadow-sm p-6 transition-all duration-300 hover:shadow-md">
-                        <h2 class="text-lg mb-4 text-indigo-700 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-blue-100">
+                        <h2 class="text-xl mb-4 text-indigo-700 flex items-center font-bold">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                             </svg>
                             学习建议
                         </h2>
-                        <div class="bg-blue-50 rounded-xl p-4 mb-4">
+                        <div class="bg-white rounded-xl p-5 mb-4 shadow-sm">
                             <p class="text-gray-700 text-sm leading-relaxed">
                                 建议选择一个模板类型，仔细研读并尝试背诵。掌握不同类型的模板有助于在考试中快速构思文章结构。
                             </p>
                         </div>
-                        <div class="flex items-center text-xs text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <div class="flex items-center text-sm text-indigo-600 font-medium mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                             </svg>
                             学习时长建议：20-30分钟
+                        </div>
+                        <div class="bg-white rounded-xl p-5 shadow-sm">
+                            <h3 class="text-gray-800 font-bold mb-3 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                                记忆小贴士
+                            </h3>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-indigo-600 mr-2">•</span>
+                                    <span>每天专注记忆1-2个模板，避免贪多嚼不烂</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-600 mr-2">•</span>
+                                    <span>结合实际写作练习，加深模板理解</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-600 mr-2">•</span>
+                                    <span>建立自己的模板库，便于复习回顾</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
                 <div class="lg:w-3/4">
-                    <div class="bg-white rounded-2xl shadow-sm p-6 transition-all duration-300 hover:shadow-md mb-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl mb-8">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 pb-4 border-b border-gray-100">
                             <div>
-                                <h2 id="category-title" class="text-2xl text-gray-800 flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                                <h2 id="category-title" class="text-3xl text-gray-800 flex items-center font-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                                     </svg>
                                     议论文模板
                                 </h2>
-                                <p id="category-description" class="text-gray-600 text-sm mt-1">
+                                <p id="category-description" class="text-gray-600 text-base mt-2">
                                     掌握这些模板，助你快速构建文章框架
                                 </p>
                             </div>
                             <div class="mt-3 md:mt-0">
-                                <span id="template-count" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                <span id="template-count" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md">
                                     5 个模板
                                 </span>
                             </div>
                         </div>
                         
-                        <div id="templates-container">
+                        <div id="templates-container" class="mt-2">
                             <!-- 模板内容将通过JavaScript动态加载 -->
                         </div>
                         
-                        <div class="mt-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-sm p-6 text-white">
-                            <h3 class="text-xl mb-4 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <div class="mt-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg p-7 text-white">
+                            <h3 class="text-2xl mb-5 flex items-center font-bold">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                 </svg>
-                                背诵技巧
+                                背诵技巧与记忆方法
                             </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="flex items-start">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
                                     <div class="flex-shrink-0 mt-1">
-                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
-                                            <span class="text-white text-xs font-bold">1</span>
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">1</span>
                                         </div>
                                     </div>
-                                    <p class="ml-3 text-indigo-100 text-sm">先理解模板结构，再逐句背诵</p>
+                                    <p class="ml-4 text-indigo-100 text-base">先理解模板结构，再逐句背诵</p>
                                 </div>
-                                <div class="flex items-start">
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
                                     <div class="flex-shrink-0 mt-1">
-                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
-                                            <span class="text-white text-xs font-bold">2</span>
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">2</span>
                                         </div>
                                     </div>
-                                    <p class="ml-3 text-indigo-100 text-sm">多次重复朗读，加深记忆</p>
+                                    <p class="ml-4 text-indigo-100 text-base">多次重复朗读，加深记忆</p>
                                 </div>
-                                <div class="flex items-start">
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
                                     <div class="flex-shrink-0 mt-1">
-                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
-                                            <span class="text-white text-xs font-bold">3</span>
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">3</span>
                                         </div>
                                     </div>
-                                    <p class="ml-3 text-indigo-100 text-sm">尝试用自己的话替换空格内容进行练习</p>
+                                    <p class="ml-4 text-indigo-100 text-base">尝试用自己的话替换空格内容进行练习</p>
                                 </div>
-                                <div class="flex items-start">
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
                                     <div class="flex-shrink-0 mt-1">
-                                        <div class="flex items-center justify-center h-6 w-6 rounded-full bg-white bg-opacity-20">
-                                            <span class="text-white text-xs font-bold">4</span>
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">4</span>
                                         </div>
                                     </div>
-                                    <p class="ml-3 text-indigo-100 text-sm">定期复习已掌握的模板，防止遗忘</p>
+                                    <p class="ml-4 text-indigo-100 text-base">定期复习已掌握的模板，防止遗忘</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">5</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">将模板与实际写作场景联系起来，提高应用能力</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">6</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">制作记忆卡片，利用碎片时间反复记忆</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">7</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">录音跟读，训练语感和流利度</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">8</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">默写模板，检验记忆效果</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">9</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">与同伴互相背诵，发现记忆盲点</p>
+                                </div>
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-xl backdrop-filter backdrop-blur-sm">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="flex items-center justify-center h-7 w-7 rounded-full bg-white bg-opacity-20">
+                                            <span class="text-white text-sm font-bold">10</span>
+                                        </div>
+                                    </div>
+                                    <p class="ml-4 text-indigo-100 text-base">创建思维导图，可视化模板结构</p>
                                 </div>
                             </div>
                         </div>
@@ -208,57 +321,57 @@
         </main>
 
         <!-- Phrase Modal -->
-        <div id="phrase-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
-            <div class="bg-white rounded-2xl shadow-lg max-w-md w-full p-6 transform transition-all duration-300 scale-95">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-xl text-gray-800">短语详情</h3>
-                    <button onclick="closePhraseModal()" class="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        <div id="phrase-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden backdrop-filter backdrop-blur-sm">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-7 transform transition-all duration-300">
+                <div class="flex justify-between items-start mb-5">
+                    <h3 class="text-2xl font-bold text-gray-800">短语详情</h3>
+                    <button onclick="closePhraseModal()" class="text-gray-500 hover:text-gray-700 transition-colors duration-300 bg-gray-100 hover:bg-gray-200 rounded-full p-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
                 
-                <div class="space-y-5">
+                <div class="space-y-6">
                     <div>
-                        <div class="flex items-center mb-2">
-                            <h4 class="text-gray-700">短语：</h4>
-                            <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        <div class="flex items-center mb-3">
+                            <h4 class="text-gray-700 text-lg font-bold">短语：</h4>
+                            <span class="ml-2 inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
                                 重点
                             </span>
                         </div>
-                        <p id="phrase-text" class="text-gray-800 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100 font-medium">
+                        <p id="phrase-text" class="text-gray-800 bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-100 font-bold text-lg">
                             <!-- 短语内容 -->
                         </p>
                     </div>
                     
                     <div>
-                        <h4 class="text-gray-700 mb-2">中文含义：</h4>
-                        <p id="phrase-meaning" class="text-gray-800 bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl border border-green-100">
+                        <h4 class="text-gray-700 text-lg font-bold mb-3">中文含义：</h4>
+                        <p id="phrase-meaning" class="text-gray-800 bg-gradient-to-r from-green-50 to-teal-50 p-5 rounded-xl border border-green-100 text-base">
                             <!-- 中文含义 -->
                         </p>
                     </div>
                     
                     <div>
-                        <h4 class="text-gray-700 mb-2">例句：</h4>
-                        <p id="phrase-example" class="text-gray-800 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100 italic">
+                        <h4 class="text-gray-700 text-lg font-bold mb-3">例句：</h4>
+                        <p id="phrase-example" class="text-gray-800 bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 italic text-base">
                             <!-- 例句 -->
                         </p>
                     </div>
                 </div>
                 
-                <div class="mt-6 flex justify-end">
-                    <button onclick="closePhraseModal()" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <div class="mt-7 flex justify-end">
+                    <button onclick="closePhraseModal()" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         关闭
                     </button>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-gray-800 text-white py-6 mt-8">
+        <footer class="bg-gradient-to-r from-gray-800 to-indigo-900 text-white py-8 mt-12">
             <div class="container mx-auto px-4">
-                <div class="text-center text-sm">
-                    <p>CET-6 写作学习系统 &copy; 2025</p>
+                <div class="text-center text-base">
+                    <p class="font-bold">CET-6 写作学习系统 &copy; 2025</p>
                 </div>
             </div>
         </footer>
@@ -656,25 +769,35 @@ In conclusion, [重申重要性]. Therefore, it is advisable for us to [建议].
             
             if (selectedCategory !== 'phrases') {
                 container.innerHTML = `
-                    <div class="space-y-5">
+                    <div class="space-y-6">
                         ${currentTemplates.map(template => `
-                            <div class="border border-gray-200 rounded-2xl p-5 hover:shadow-md transition-all duration-300">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h3 class="text-lg text-gray-800">${template.title}</h3>
-                                    <button onclick="toggleTemplate('${template.id}')" class="px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200 flex items-center ${memorizedTemplates.has(template.id) ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
+                            <div class="template-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-800">${template.title}</h3>
+                                    <button onclick="toggleTemplate('${template.id}')" class="px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center ${memorizedTemplates.has(template.id) ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">
                                         ${memorizedTemplates.has(template.id) ? `
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                             </svg>
                                             已掌握
                                         ` : '标记掌握'}
                                     </button>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-4">${template.description}</p>
+                                <p class="text-gray-600 mb-3">${template.description}</p>
+                                <div class="mb-5 bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-yellow-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                        </svg>
+                                        <p class="text-sm text-yellow-700">
+                                            <span class="font-bold">记忆技巧：</span>重点关注括号内的内容，这些是需要灵活替换的部分
+                                        </p>
+                                    </div>
+                                </div>
                                 
-                                <div class="mb-4">
-                                    <button onclick="toggleTemplateView('${template.id}')" class="flex items-center text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <div class="mb-5">
+                                    <button onclick="toggleTemplateView('${template.id}')" class="flex items-center text-indigo-600 hover:text-indigo-800 font-bold transition-colors duration-200">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                                         </svg>
                                         ${showTemplate === template.id ? '隐藏模板' : '查看模板'}
@@ -682,22 +805,26 @@ In conclusion, [重申重要性]. Therefore, it is advisable for us to [建议].
                                 </div>
                                 
                                 ${showTemplate === template.id ? `
-                                    <div class="bg-white p-6 rounded-2xl border border-gray-200 mt-3 shadow-lg transform transition-all duration-300 hover:shadow-xl animate-fade-in-up">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="text-lg text-indigo-700">模板内容</h4>
-                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                    <div class="bg-gradient-to-br from-white to-gray-50 p-7 rounded-2xl border border-gray-200 mt-4 shadow-xl transform transition-all duration-300 animate-fade-in-up">
+                                        <div class="flex items-center justify-between mb-5">
+                                            <h4 class="text-xl font-bold text-indigo-700">模板内容</h4>
+                                            <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 shadow-sm">
                                                 点击空白处关闭
                                             </span>
                                         </div>
-                                        <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-100 font-sans template-content">
-                                            ${template.content.split('\n').map(line => `
-                                                <div class="mb-3 last:mb-0 text-gray-700 text-sm leading-relaxed py-2 px-4 rounded-lg">
-                                                    ${line || '<span class="inline-block w-full h-4">&nbsp;</span>'}
+                                        <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-100 font-sans template-content">
+                                            ${template.content.split('\n').map((line, index) => `
+                                                <div class="mb-4 last:mb-0 text-gray-800 text-base leading-relaxed py-3 px-5 rounded-lg hover:bg-indigo-50 transition-all duration-200 flex">
+                                                    <span class="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full mr-3 mt-0.5">${index + 1}</span>
+                                                    <span>${line || '<span class="inline-block w-full h-5">&nbsp;</span>'}</span>
                                                 </div>
                                             `).join('')}
                                         </div>
-                                        <div class="mt-4 flex justify-end">
-                                            <button onclick="toggleTemplateView('${template.id}')" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 font-medium shadow-md">
+                                        <div class="mt-6 pt-5 border-t border-gray-200 flex justify-between items-center">
+                                            <div class="text-sm text-gray-600 bg-gray-100 px-4 py-2 rounded-lg">
+                                                <span class="font-bold text-indigo-700">记忆提示:</span> 突出关键词，理解逻辑关系
+                                            </div>
+                                            <button onclick="toggleTemplateView('${template.id}')" class="px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-xl hover:from-indigo-700 hover:to-purple-800 transition-all duration-300 font-bold shadow-lg transform hover:-translate-y-0.5">
                                                 关闭模板
                                             </button>
                                         </div>
@@ -709,22 +836,41 @@ In conclusion, [重申重要性]. Therefore, it is advisable for us to [建议].
                 `;
             } else {
                 container.innerHTML = `
-                    <div class="space-y-5">
+                    <div class="space-y-6">
                         ${currentTemplates.map(phraseGroup => `
-                            <div class="border border-gray-200 rounded-2xl p-5 hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center mb-4">
-                                    <h3 class="text-lg text-gray-800">${phraseGroup.title}</h3>
-                                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                                <div class="flex items-center mb-5">
+                                    <h3 class="text-xl font-bold text-gray-800">${phraseGroup.title}</h3>
+                                    <span class="ml-3 inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800">
                                         ${phraseGroup.content.length} 个短语
                                     </span>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-4">${phraseGroup.description}</p>
+                                <p class="text-gray-600 mb-3">${phraseGroup.description}</p>
+                                <div class="mb-5 bg-green-50 border-l-4 border-green-400 p-3 rounded">
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-green-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                        </svg>
+                                        <p class="text-sm text-green-700">
+                                            <span class="font-bold">学习建议：</span>尝试用这些短语造句，加深理解和记忆
+                                        </p>
+                                    </div>
+                                </div>
                                 
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     ${phraseGroup.content.map((phrase, index) => `
-                                        <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200 cursor-pointer hover:from-indigo-50 hover:to-purple-50 transition-all duration-200 transform hover:-translate-y-0.5" onclick='showPhraseModal(${JSON.stringify(phrase)})'>
-                                            <p class="font-medium text-gray-800 mb-2 text-sm">${phrase.phrase}</p>
-                                            <p class="text-gray-600 text-xs">${phrase.meaning}</p>
+                                        <div class="phrase-card bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-md hover:border-indigo-300" onclick='showPhraseModal(${JSON.stringify(phrase)})'>
+                                            <div class="flex justify-between items-start mb-2">
+                                                <p class="font-bold text-gray-800 text-base">${phrase.phrase}</p>
+                                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
+                                                    重点
+                                                </span>
+                                            </div>
+                                            <p class="text-gray-600 text-sm mb-3">${phrase.meaning}</p>
+                                            <div class="mt-3 pt-3 border-t border-gray-100">
+                                                <p class="text-gray-700 text-xs font-bold mb-1">例句：</p>
+                                                <p class="text-gray-500 text-xs italic">"${phrase.example}"</p>
+                                            </div>
                                         </div>
                                     `).join('')}
                                 </div>

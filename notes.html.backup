@@ -511,7 +511,7 @@
                     </svg>
                 </div>
                 
-                <div id="confusable-section" class="expandable-section expanded" style="max-height: none; overflow-y: visible;">
+                <div id="confusable-section" class="expandable-section expanded">
                     <div class="p-6">
                         <div id="confusable-container">
                             <!-- 形近词组将在这里动态加载 -->
@@ -2620,7 +2620,7 @@
             if (note && phraseExamples[phrase]) {
                 exampleText.innerHTML = `
                     <div class="mb-4">
-                        <div class="text-gray-600 text-lg mb-2">例句中文含义：</div>
+                        <div class="text-gray-600 text-lg mb-2">中文含义：</div>
                         <div class="text-gray-800 font-medium">${note.translation}</div>
                     </div>
                     <div>
@@ -2682,7 +2682,7 @@
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <div class="confusable-group-content" id="confusable-content-${groupId}" style="padding: 10px; max-height: none; overflow-y: visible;">
+                        <div class="confusable-group-content" id="confusable-content-${groupId}">
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 ${groupNotes.map(note => `
                                     <div class="confusable-word-card">
@@ -2720,8 +2720,7 @@
             for (const groupId in groups) {
                 const content = document.getElementById(`confusable-content-${groupId}`);
                 if (content) {
-                    content.style.maxHeight = 'none';
-                    content.style.overflowY = 'visible';
+                    content.classList.remove('hidden');
                 }
                 const arrow = document.getElementById(`confusable-arrow-${groupId}`);
                 if (arrow) {

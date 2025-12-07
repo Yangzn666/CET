@@ -55,6 +55,7 @@
             display: inline-block;
             padding: 0.25rem 0.5rem;
             font-size: 0.75rem;
+            font-weight: 500;
             border-radius: 9999px;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
@@ -99,218 +100,51 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* 形近词分组样式 */
-        .confusable-group {
-            background-color: #ffffff;
+        /* 形近词卡片样式 */
+        .confusable-card {
             border-radius: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-        }
-        
-        .confusable-group-header {
-            background-color: #f9fafb;
-            padding: 1rem 1.25rem;
-            border-radius: 1rem 1rem 0 0;
+            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+            padding: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f3f4f6;
+            transition: all 0.3s ease;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
         }
         
-        .confusable-group-content {
-            padding: 1.5rem;
-        }
-        
-        .confusable-word-card {
-            border-radius: 1rem;
-            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
-            padding: 1.25rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
-            position: relative;
-            margin-bottom: 1rem;
-        }
-        
-        .confusable-word-card:hover {
+        .confusable-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        .confusable-word-content {
-            font-weight: bold;
-            font-size: 1.125rem;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .confusable-word-translation {
-            color: #4b5563;
-            font-size: 1rem;
-        }
-        
-        .confusable-word-tags {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .confusable-word-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background: linear-gradient(to right, #fef3c7, #fde68a);
-            color: #92400e;
-            border: 1px solid #facc15;
-        }
-        
-        .delete-button {
-            position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .confusable-word-card:hover .delete-button {
-            opacity: 1;
-        }
-        
-        /* 词组、单词、句子卡片样式 */
-        .note-card-item {
-            border-radius: 1rem;
-            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
-            padding: 1.25rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
-            position: relative;
-            margin-bottom: 1rem;
-        }
-        
-        .note-card-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .note-card-content {
-            font-weight: bold;
-            font-size: 1.125rem;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .note-card-translation {
-            color: #4b5563;
-            font-size: 1rem;
-        }
-        
-        .note-card-tags {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .note-card-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background: linear-gradient(to right, #e5e7eb, #d1d5db);
-            color: #374151;
-            border: 1px solid #d1d5db;
-        }
-        
-        .word-note-tag {
-            background: linear-gradient(to right, #dbeafe, #bfdbfe);
+        /* 类型标签颜色 */
+        .type-word {
+            background-color: #dbeafe;
             color: #1e40af;
             border: 1px solid #93c5fd;
         }
         
-        .phrase-note-tag {
-            background: linear-gradient(to right, #dcfce7, #bbf7d0);
+        .type-phrase {
+            background-color: #dcfce7;
             color: #166534;
             border: 1px solid #86efac;
         }
         
-        .sentence-note-tag {
-            background: linear-gradient(to right, #fef3c7, #fde68a);
+        .type-sentence {
+            background-color: #fef3c7;
             color: #92400e;
             border: 1px solid #facc15;
         }
         
-        .summary-note-tag {
-            background: linear-gradient(to right, #f3e8ff, #e9d5ff);
+        .type-summary {
+            background-color: #f3e8ff;
             color: #7c3aed;
             border: 1px solid #c4b5fd;
         }
         
-        .confusable-note-tag {
-            background: linear-gradient(to right, #ffe4e6, #fecaca);
+        .type-confusable {
+            background-color: #ffe4e6;
             color: #dc2626;
             border: 1px solid #fca5a5;
-        }
-        
-        /* Modal styles */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 50;
-            padding: 1rem;
-        }
-        
-        .modal-content {
-            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
-            border: 2px solid #c7d2fe;
-            max-width: 2xl;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .modal-title {
-            font-weight: bold;
-            color: #4f46e5;
-            margin-bottom: 0.5rem;
-        }
-        
-        .modal-example {
-            background: linear-gradient(to right, #c7d2fe, #ddd6fe);
-            border-radius: 1rem;
-            border: 2px solid #c7d2fe;
-            padding: 1.5rem;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        
-        .modal-info {
-            background-color: #dbeafe;
-            border-radius: 0.75rem;
-            border: 1px solid #93c5fd;
-            padding: 1rem;
-            display: flex;
-            align-items: flex-start;
         }
     </style>
 </head>
@@ -318,13 +152,13 @@
     <div class="min-h-screen bg-gray-50">
         <header class="bg-white shadow-sm sticky top-0 z-10">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <div class="text-xl font-semibold text-indigo-600">CET-6 学习笔记</div>
+                <div class="text-xl text-indigo-600">CET-6 学习笔记</div>
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="index.html" class="text-gray-600 hover:text-indigo-600 transition-colors">首页</a></li>
                         <li><a href="writing-guide.html" class="text-gray-600 hover:text-indigo-600 transition-colors">写作指导</a></li>
                         <li><a href="template-practice.html" class="text-gray-600 hover:text-indigo-600 transition-colors">模板背诵</a></li>
-                        <li><a href="notes.html" class="text-indigo-600 font-medium">笔记整理</a></li>
+                        <li><a href="notes.html" class="text-indigo-600">笔记整理</a></li>
                         <li><a href="roots.html" class="text-gray-600 hover:text-indigo-600 transition-colors">词根词缀</a></li>
                     </ul>
                 </nav>
@@ -333,7 +167,7 @@
 
         <main class="container mx-auto px-4 py-8">
             <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold text-gray-800 mb-3">学习笔记整理</h1>
+                <h1 class="text-4xl text-gray-800 mb-3">学习笔记整理</h1>
                 <p class="text-gray-600 text-lg">整理你的英语学习笔记，提高学习效率</p>
             </div>
             
@@ -343,7 +177,7 @@
                     class="px-6 py-4 bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer flex justify-between items-center"
                     onclick="toggleSection('form')"
                 >
-                    <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                    <h2 class="text-xl text-gray-800 flex items-center">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-indigo-100 text-indigo-800">
                             添加新笔记
                         </span>
@@ -360,101 +194,83 @@
                 </div>
                 
                 <div id="form-section" class="expandable-section expanded">
-                    <div class="p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 border-t border-gray-100">
+                        <form id="note-form" class="space-y-4">
                             <div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="note-type">
-                                        笔记类型
-                                    </label>
-                                    <select
-                                        id="note-type"
-                                        class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                        onchange="updateFormFields()"
-                                    >
-                                        <option value="word">单词</option>
-                                        <option value="phrase">词组</option>
-                                        <option value="sentence">句子</option>
-                                        <option value="summary">总结</option>
-                                        <option value="confusable">形近词</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="note-content">
-                                        内容 *
-                                    </label>
-                                    <textarea
-                                        id="note-content"
-                                        class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                        rows="3"
-                                        placeholder="输入单词、词组、句子或总结内容"
-                                    ></textarea>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="note-translation">
-                                        翻译/解释
-                                    </label>
-                                    <textarea
-                                        id="note-translation"
-                                        class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                        rows="2"
-                                        placeholder="输入翻译或解释说明"
-                                    ></textarea>
-                                </div>
+                                <label for="note-type" class="block text-sm font-medium text-gray-700 mb-1">类型</label>
+                                <select 
+                                    id="note-type" 
+                                    name="type" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                >
+                                    <option value="word">单词</option>
+                                    <option value="phrase">词组</option>
+                                    <option value="sentence">句子</option>
+                                    <option value="summary">总结</option>
+                                    <option value="confusable">形近词</option>
+                                </select>
                             </div>
                             
                             <div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-medium mb-2">
-                                        标签
-                                    </label>
-                                    <div class="flex">
-                                        <input
-                                            type="text"
-                                            id="tag-input"
-                                            class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                            placeholder="输入标签并按回车添加"
-                                            onkeypress="if(event.key === 'Enter') { event.preventDefault(); addTag(); }"
-                                        />
-                                        <button
-                                            class="bg-indigo-600 text-white px-4 py-2 rounded-r-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium"
-                                            onclick="addTag()"
-                                        >
-                                            添加
-                                        </button>
-                                    </div>
-                                    <div class="mt-2 flex flex-wrap gap-2" id="tags-container">
-                                        <!-- Tags will be added here dynamically -->
-                                    </div>
-                                </div>
-                                
-                                <button
-                                    class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg text-sm"
-                                    onclick="addNoteFromForm()"
+                                <label for="note-content" class="block text-sm font-medium text-gray-700 mb-1">内容</label>
+                                <input 
+                                    type="text" 
+                                    id="note-content" 
+                                    name="content" 
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                    placeholder="输入笔记内容..."
+                                >
+                            </div>
+                            
+                            <div>
+                                <label for="note-translation" class="block text-sm font-medium text-gray-700 mb-1">翻译</label>
+                                <input 
+                                    type="text" 
+                                    id="note-translation" 
+                                    name="translation" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                    placeholder="输入翻译..."
+                                >
+                            </div>
+                            
+                            <div>
+                                <label for="note-tags" class="block text-sm font-medium text-gray-700 mb-1">标签</label>
+                                <input 
+                                    type="text" 
+                                    id="note-tags" 
+                                    name="tags" 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                                    placeholder="输入标签，用逗号分隔..."
+                                >
+                            </div>
+                            
+                            <div class="flex justify-end">
+                                <button 
+                                    type="submit"
+                                    class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-105"
                                 >
                                     添加笔记
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
             
-            <!-- 笔记过滤和搜索 -->
+            <!-- 搜索框 -->
             <div class="bg-white rounded-2xl shadow-lg mb-8 note-card">
                 <div 
-                    class="px-6 py-4 bg-green-50 border-l-4 border-green-500 cursor-pointer flex justify-between items-center"
+                    class="px-6 py-4 bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer flex justify-between items-center"
                     onclick="toggleSection('search')"
                 >
-                    <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-green-100 text-green-800">
-                            笔记搜索
+                    <h2 class="text-xl text-gray-800 flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-indigo-100 text-indigo-800">
+                            搜索笔记
                         </span>
                     </h2>
                     <svg 
-                        class="h-5 w-5 text-green-600 toggle-icon"
+                        class="h-5 w-5 text-indigo-600 toggle-icon"
                         xmlns="http://www.w3.org/2000/svg" 
                         viewBox="0 0 20 20" 
                         fill="currentColor"
@@ -465,41 +281,37 @@
                 </div>
                 
                 <div id="search-section" class="expandable-section expanded">
-                    <div class="p-6">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                            <div class="flex-1 max-w-md">
-                                <div class="relative">
-                                    <input
-                                        type="text"
-                                        id="search-input"
-                                        class="w-full pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                        placeholder="搜索笔记内容..."
-                                        oninput="handleSearch()"
-                                    />
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
+                    <div class="p-6 border-t border-gray-100">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="search-input"
+                                class="w-full pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                placeholder="搜索笔记内容..."
+                                oninput="handleSearch()"
+                            />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                </svg>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- 形近词专区 -->
-            <div class="bg-white rounded-2xl shadow-lg note-card mb-8">
+            <div class="bg-white rounded-2xl shadow-lg mb-8 note-card">
                 <div 
                     class="px-6 py-4 bg-white border-l-4 border-gray-300 cursor-pointer flex justify-between items-center"
                     onclick="toggleSection('confusable')"
                 >
-                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                    <h2 class="text-xl text-gray-800 flex items-center">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 bg-white text-gray-800 border border-gray-200">
-                            形近词
+                            形近词专区
                         </span>
-                        <span class="text-gray-600 text-base" id="confusable-count">共 0 组</span>
-                    </h3>
+                        <span id="confusable-count" class="text-gray-600 text-base ml-2"></span>
+                    </h2>
                     <svg 
                         class="h-5 w-5 text-gray-600 toggle-icon"
                         xmlns="http://www.w3.org/2000/svg" 
@@ -511,82 +323,28 @@
                     </svg>
                 </div>
                 
-                <div id="confusable-section" class="expandable-section expanded" style="max-height: none; overflow-y: visible;">
-                    <div class="p-6">
-                        <div id="confusable-container">
+                <div id="confusable-section" class="expandable-section expanded">
+                    <div class="p-6 border-t border-gray-100">
+                        <div id="confusable-container" class="space-y-6">
                             <!-- 形近词组将在这里动态加载 -->
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- 按类型分组的笔记列表 -->
-            <div class="space-y-8" id="notes-container">
-                <!-- 笔记将在这里动态加载 -->
+            <div id="notes-by-type-container">
+                <!-- 笔记将按类型分组显示在这里 -->
             </div>
         </main>
 
-        <footer class="bg-gray-800 text-white py-6 mt-12">
-            <div class="container mx-auto px-4">
-                <div class="text-center text-sm">
-                    <p>CET-6 学习笔记系统 &copy; 2025</p>
-                </div>
+        <footer class="bg-white border-t border-gray-200 mt-12">
+            <div class="container mx-auto px-4 py-6">
+                <p class="text-center text-gray-500 text-sm">
+                    © 2025 CET-6 英语学习系统. 保留所有权利.
+                </p>
             </div>
         </footer>
-    </div>
-
-    <!-- 词组例句弹窗 -->
-    <div id="example-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="p-8">
-                <div class="modal-header">
-                    <div>
-                        <h3 class="text-3xl font-bold text-indigo-700 modal-title"></h3>
-                        <div class="w-20 h-1 bg-indigo-200 rounded-full"></div>
-                    </div>
-                    <button 
-                        onclick="closeExampleModal()"
-                        class="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="mt-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
-                        </svg>
-                        例句展示
-                    </h4>
-                    
-                    <div class="modal-example">
-                        <div class="text-gray-700 text-xl leading-relaxed modal-example-text">
-                        </div>
-                    </div>
-                    
-                    <div class="modal-info mt-8">
-                        <svg class="w-6 h-6 mr-2 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <p class="text-gray-600 text-base">
-                            点击卡片任意位置即可查看例句，帮助您更好地理解和记忆词组用法。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="mt-8 flex justify-center">
-                    <button
-                        onclick="closeExampleModal()"
-                        class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium text-lg"
-                    >
-                        确认理解
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -1229,7 +987,7 @@
             },
             // 第二十六组: expense, dispense
             {
-                id: 70,
+                id: 69,
                 type: 'confusable',
                 group: 'expense-dispense',
                 content: 'expense',
@@ -1238,7 +996,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 71,
+                id: 70,
                 type: 'confusable',
                 group: 'expense-dispense',
                 content: 'dispense',
@@ -1248,7 +1006,7 @@
             },
             // 第二十七组: segregate, propagate
             {
-                id: 72,
+                id: 71,
                 type: 'confusable',
                 group: 'segregate-propagate',
                 content: 'segregate',
@@ -1257,7 +1015,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 73,
+                id: 72,
                 type: 'confusable',
                 group: 'segregate-propagate',
                 content: 'propagate',
@@ -1267,7 +1025,7 @@
             },
             // 第二十八组: beverage, benevolent
             {
-                id: 74,
+                id: 73,
                 type: 'confusable',
                 group: 'beverage-benevolent',
                 content: 'beverage',
@@ -1276,7 +1034,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 75,
+                id: 74,
                 type: 'confusable',
                 group: 'beverage-benevolent',
                 content: 'benevolent',
@@ -1286,7 +1044,7 @@
             },
             // 第二十九组: born, barn
             {
-                id: 76,
+                id: 75,
                 type: 'confusable',
                 group: 'born-barn',
                 content: 'born',
@@ -1295,7 +1053,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 77,
+                id: 76,
                 type: 'confusable',
                 group: 'born-barn',
                 content: 'barn',
@@ -1305,7 +1063,7 @@
             },
             // 第三十组: achieve, archive
             {
-                id: 78,
+                id: 77,
                 type: 'confusable',
                 group: 'achieve-archive',
                 content: 'achieve',
@@ -1314,7 +1072,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 79,
+                id: 78,
                 type: 'confusable',
                 group: 'achieve-archive',
                 content: 'archive',
@@ -1324,7 +1082,7 @@
             },
             // 第三十一组: overhaul, havoc
             {
-                id: 80,
+                id: 79,
                 type: 'confusable',
                 group: 'overhaul-havoc',
                 content: 'overhaul',
@@ -1333,7 +1091,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 81,
+                id: 80,
                 type: 'confusable',
                 group: 'overhaul-havoc',
                 content: 'havoc',
@@ -1343,7 +1101,7 @@
             },
             // 第三十二组: loop, loot
             {
-                id: 82,
+                id: 81,
                 type: 'confusable',
                 group: 'loop-loot',
                 content: 'loop',
@@ -1352,7 +1110,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 83,
+                id: 82,
                 type: 'confusable',
                 group: 'loop-loot',
                 content: 'loot',
@@ -1362,7 +1120,7 @@
             },
             // 第三十三组: synthetic, synthesis
             {
-                id: 84,
+                id: 83,
                 type: 'confusable',
                 group: 'synthetic-synthesis',
                 content: 'synthetic',
@@ -1371,7 +1129,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 85,
+                id: 84,
                 type: 'confusable',
                 group: 'synthetic-synthesis',
                 content: 'synthesis',
@@ -1381,7 +1139,7 @@
             },
             // 第三十四组: tremble, tumble
             {
-                id: 86,
+                id: 85,
                 type: 'confusable',
                 group: 'tremble-tumble',
                 content: 'tremble',
@@ -1390,7 +1148,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 87,
+                id: 86,
                 type: 'confusable',
                 group: 'tremble-tumble',
                 content: 'tumble',
@@ -1400,7 +1158,7 @@
             },
             // 第三十五组: sake, soak
             {
-                id: 88,
+                id: 87,
                 type: 'confusable',
                 group: 'sake-soak',
                 content: 'sake',
@@ -1409,7 +1167,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 89,
+                id: 88,
                 type: 'confusable',
                 group: 'sake-soak',
                 content: 'soak',
@@ -1419,7 +1177,7 @@
             },
             // 第三十六组: success, successive
             {
-                id: 90,
+                id: 89,
                 type: 'confusable',
                 group: 'success-successive',
                 content: 'success',
@@ -1428,7 +1186,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 91,
+                id: 90,
                 type: 'confusable',
                 group: 'success-successive',
                 content: 'successive',
@@ -1438,7 +1196,7 @@
             },
             // 第三十七组: instance, stance
             {
-                id: 92,
+                id: 91,
                 type: 'confusable',
                 group: 'instance-stance',
                 content: 'instance',
@@ -1447,7 +1205,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 93,
+                id: 92,
                 type: 'confusable',
                 group: 'instance-stance',
                 content: 'stance',
@@ -1457,7 +1215,7 @@
             },
             // 第三十八组: haunt, hunt
             {
-                id: 94,
+                id: 93,
                 type: 'confusable',
                 group: 'haunt-hunt',
                 content: 'haunt',
@@ -1466,7 +1224,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 95,
+                id: 94,
                 type: 'confusable',
                 group: 'haunt-hunt',
                 content: 'hunt',
@@ -1476,7 +1234,7 @@
             },
             // 第三十九组: coincide, concise
             {
-                id: 96,
+                id: 95,
                 type: 'confusable',
                 group: 'coincide-concise',
                 content: 'coincide',
@@ -1485,7 +1243,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 97,
+                id: 96,
                 type: 'confusable',
                 group: 'coincide-concise',
                 content: 'concise',
@@ -1495,7 +1253,7 @@
             },
             // 第四十组: deduce, seduce
             {
-                id: 98,
+                id: 97,
                 type: 'confusable',
                 group: 'deduce-seduce',
                 content: 'deduce',
@@ -1504,7 +1262,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 99,
+                id: 98,
                 type: 'confusable',
                 group: 'deduce-seduce',
                 content: 'seduce',
@@ -1514,7 +1272,7 @@
             },
             // 第四十一组: patrol, patriot
             {
-                id: 100,
+                id: 99,
                 type: 'confusable',
                 group: 'patrol-patriot',
                 content: 'patrol',
@@ -1523,7 +1281,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 101,
+                id: 100,
                 type: 'confusable',
                 group: 'patrol-patriot',
                 content: 'patriot',
@@ -1533,7 +1291,7 @@
             },
             // 第四十二组: industrious, indigenous
             {
-                id: 102,
+                id: 101,
                 type: 'confusable',
                 group: 'industrious-indigenous',
                 content: 'industrious',
@@ -1542,7 +1300,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 103,
+                id: 102,
                 type: 'confusable',
                 group: 'industrious-indigenous',
                 content: 'indigenous',
@@ -1552,7 +1310,7 @@
             },
             // 第四十三组: delete, deplete
             {
-                id: 104,
+                id: 103,
                 type: 'confusable',
                 group: 'delete-deplete',
                 content: 'delete',
@@ -1561,7 +1319,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 105,
+                id: 104,
                 type: 'confusable',
                 group: 'delete-deplete',
                 content: 'deplete',
@@ -1571,7 +1329,7 @@
             },
             // 第四十四组: sob, sober
             {
-                id: 106,
+                id: 105,
                 type: 'confusable',
                 group: 'sob-sober',
                 content: 'sob',
@@ -1580,7 +1338,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 107,
+                id: 106,
                 type: 'confusable',
                 group: 'sob-sober',
                 content: 'sober',
@@ -1590,7 +1348,7 @@
             },
             // 第四十五组: consult, assault
             {
-                id: 108,
+                id: 107,
                 type: 'confusable',
                 group: 'consult-assault',
                 content: 'consult',
@@ -1599,7 +1357,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 109,
+                id: 108,
                 type: 'confusable',
                 group: 'consult-assault',
                 content: 'assault',
@@ -1609,7 +1367,7 @@
             },
             // 第四十六组: encode, concede
             {
-                id: 110,
+                id: 109,
                 type: 'confusable',
                 group: 'encode-concede',
                 content: 'encode',
@@ -1618,7 +1376,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 111,
+                id: 110,
                 type: 'confusable',
                 group: 'encode-concede',
                 content: 'concede',
@@ -1628,7 +1386,7 @@
             },
             // 第四十七组: blaze, bizarre
             {
-                id: 112,
+                id: 111,
                 type: 'confusable',
                 group: 'blaze-bizarre',
                 content: 'blaze',
@@ -1637,7 +1395,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 113,
+                id: 112,
                 type: 'confusable',
                 group: 'blaze-bizarre',
                 content: 'bizarre',
@@ -1647,7 +1405,7 @@
             },
             // 第四十八组: immediate, mediate
             {
-                id: 114,
+                id: 113,
                 type: 'confusable',
                 group: 'immediate-mediate',
                 content: 'immediate',
@@ -1656,7 +1414,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 115,
+                id: 114,
                 type: 'confusable',
                 group: 'immediate-mediate',
                 content: 'mediate',
@@ -1666,7 +1424,7 @@
             },
             // 第四十九组: promise, premise
             {
-                id: 116,
+                id: 115,
                 type: 'confusable',
                 group: 'promise-premise',
                 content: 'promise',
@@ -1675,7 +1433,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 117,
+                id: 116,
                 type: 'confusable',
                 group: 'promise-premise',
                 content: 'premise',
@@ -1685,7 +1443,7 @@
             },
             // 第五十组: grid, grim, grin
             {
-                id: 118,
+                id: 117,
                 type: 'confusable',
                 group: 'grid-grim-grin',
                 content: 'grid',
@@ -1694,7 +1452,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 119,
+                id: 118,
                 type: 'confusable',
                 group: 'grid-grim-grin',
                 content: 'grim',
@@ -1703,7 +1461,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 120,
+                id: 119,
                 type: 'confusable',
                 group: 'grid-grim-grin',
                 content: 'grin',
@@ -1713,7 +1471,7 @@
             },
             // 第五十一组: elite, elicit
             {
-                id: 121,
+                id: 120,
                 type: 'confusable',
                 group: 'elite-elicit',
                 content: 'elite',
@@ -1722,7 +1480,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 122,
+                id: 121,
                 type: 'confusable',
                 group: 'elite-elicit',
                 content: 'elicit',
@@ -1732,7 +1490,7 @@
             },
             // 第五十二组: iron, irony
             {
-                id: 123,
+                id: 122,
                 type: 'confusable',
                 group: 'iron-irony',
                 content: 'iron',
@@ -1741,7 +1499,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 124,
+                id: 123,
                 type: 'confusable',
                 group: 'iron-irony',
                 content: 'irony',
@@ -1751,7 +1509,7 @@
             },
             // 第五十三组: reproach, approach
             {
-                id: 125,
+                id: 124,
                 type: 'confusable',
                 group: 'reproach-approach',
                 content: 'reproach',
@@ -1760,7 +1518,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 126,
+                id: 125,
                 type: 'confusable',
                 group: 'reproach-approach',
                 content: 'approach',
@@ -1770,7 +1528,7 @@
             },
             // 第五十四组: hinge, mingle
             {
-                id: 127,
+                id: 126,
                 type: 'confusable',
                 group: 'hinge-mingle',
                 content: 'hinge',
@@ -1779,7 +1537,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 128,
+                id: 127,
                 type: 'confusable',
                 group: 'hinge-mingle',
                 content: 'mingle',
@@ -1789,7 +1547,7 @@
             },
             // 第五十五组: erect, eject
             {
-                id: 129,
+                id: 128,
                 type: 'confusable',
                 group: 'erect-eject',
                 content: 'erect',
@@ -1798,7 +1556,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 130,
+                id: 129,
                 type: 'confusable',
                 group: 'erect-eject',
                 content: 'eject',
@@ -1808,7 +1566,7 @@
             },
             // 第五十六组: tranquil, transient
             {
-                id: 131,
+                id: 130,
                 type: 'confusable',
                 group: 'tranquil-transient',
                 content: 'tranquil',
@@ -1817,7 +1575,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 132,
+                id: 131,
                 type: 'confusable',
                 group: 'tranquil-transient',
                 content: 'transient',
@@ -1827,7 +1585,7 @@
             },
             // 第五十七组: shuttle, shatter
             {
-                id: 133,
+                id: 132,
                 type: 'confusable',
                 group: 'shuttle-shatter',
                 content: 'shuttle',
@@ -1836,7 +1594,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 134,
+                id: 133,
                 type: 'confusable',
                 group: 'shuttle-shatter',
                 content: 'shatter',
@@ -1846,7 +1604,7 @@
             },
             // 第五十八组: preface, pretext
             {
-                id: 135,
+                id: 134,
                 type: 'confusable',
                 group: 'preface-pretext',
                 content: 'preface',
@@ -1855,7 +1613,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 136,
+                id: 135,
                 type: 'confusable',
                 group: 'preface-pretext',
                 content: 'pretext',
@@ -1865,7 +1623,7 @@
             },
             // 第五十九组: endure, endorse
             {
-                id: 137,
+                id: 136,
                 type: 'confusable',
                 group: 'endure-endorse',
                 content: 'endure',
@@ -1874,7 +1632,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 138,
+                id: 137,
                 type: 'confusable',
                 group: 'endure-endorse',
                 content: 'endorse',
@@ -1884,7 +1642,7 @@
             },
             // 第六十组: tempt, attempt, contempt
             {
-                id: 139,
+                id: 138,
                 type: 'confusable',
                 group: 'tempt-attempt-contempt',
                 content: 'tempt',
@@ -1893,7 +1651,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 140,
+                id: 139,
                 type: 'confusable',
                 group: 'tempt-attempt-contempt',
                 content: 'attempt',
@@ -1902,7 +1660,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 141,
+                id: 140,
                 type: 'confusable',
                 group: 'tempt-attempt-contempt',
                 content: 'contempt',
@@ -1912,7 +1670,7 @@
             },
             // 第六十一组: recruit, refute
             {
-                id: 142,
+                id: 141,
                 type: 'confusable',
                 group: 'recruit-refute',
                 content: 'recruit',
@@ -1921,7 +1679,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 143,
+                id: 142,
                 type: 'confusable',
                 group: 'recruit-refute',
                 content: 'refute',
@@ -1931,7 +1689,7 @@
             },
             // 第六十二组: summon, summit
             {
-                id: 144,
+                id: 143,
                 type: 'confusable',
                 group: 'summon-summit',
                 content: 'summon',
@@ -1940,7 +1698,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 145,
+                id: 144,
                 type: 'confusable',
                 group: 'summon-summit',
                 content: 'summit',
@@ -1950,7 +1708,7 @@
             },
             // 第六十三组: whip, worship
             {
-                id: 146,
+                id: 145,
                 type: 'confusable',
                 group: 'whip-worship',
                 content: 'whip',
@@ -1959,7 +1717,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 147,
+                id: 146,
                 type: 'confusable',
                 group: 'whip-worship',
                 content: 'worship',
@@ -1969,7 +1727,7 @@
             },
             // 第六十四组: hostage, hostile
             {
-                id: 148,
+                id: 147,
                 type: 'confusable',
                 group: 'hostage-hostile',
                 content: 'hostage',
@@ -1978,7 +1736,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 149,
+                id: 148,
                 type: 'confusable',
                 group: 'hostage-hostile',
                 content: 'hostile',
@@ -1988,7 +1746,7 @@
             },
             // 第六十五组: inhabit, inhibit
             {
-                id: 150,
+                id: 149,
                 type: 'confusable',
                 group: 'inhabit-inhibit',
                 content: 'inhabit',
@@ -1997,7 +1755,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 151,
+                id: 150,
                 type: 'confusable',
                 group: 'inhabit-inhibit',
                 content: 'inhibit',
@@ -2007,7 +1765,7 @@
             },
             // 第六十六组: texture, pasture
             {
-                id: 152,
+                id: 151,
                 type: 'confusable',
                 group: 'texture-pasture',
                 content: 'texture',
@@ -2016,7 +1774,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 153,
+                id: 152,
                 type: 'confusable',
                 group: 'texture-pasture',
                 content: 'pasture',
@@ -2026,7 +1784,7 @@
             },
             // 第六十七组: imitate, intimidate, intimate
             {
-                id: 154,
+                id: 153,
                 type: 'confusable',
                 group: 'imitate-intimidate-intimate',
                 content: 'imitate',
@@ -2035,7 +1793,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 155,
+                id: 154,
                 type: 'confusable',
                 group: 'imitate-intimidate-intimate',
                 content: 'intimidate',
@@ -2044,7 +1802,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 156,
+                id: 155,
                 type: 'confusable',
                 group: 'imitate-intimidate-intimate',
                 content: 'intimate',
@@ -2054,7 +1812,7 @@
             },
             // 第六十八组: insult, insulate
             {
-                id: 157,
+                id: 156,
                 type: 'confusable',
                 group: 'insult-insulate',
                 content: 'insult',
@@ -2063,7 +1821,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 158,
+                id: 157,
                 type: 'confusable',
                 group: 'insult-insulate',
                 content: 'insulate',
@@ -2073,7 +1831,7 @@
             },
             // 第六十九组: context, contend
             {
-                id: 159,
+                id: 158,
                 type: 'confusable',
                 group: 'context-contend',
                 content: 'context',
@@ -2082,7 +1840,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 160,
+                id: 159,
                 type: 'confusable',
                 group: 'context-contend',
                 content: 'contend',
@@ -2092,7 +1850,7 @@
             },
             // 第七十组: tame, tamp
             {
-                id: 161,
+                id: 160,
                 type: 'confusable',
                 group: 'tame-tamp',
                 content: 'tame',
@@ -2101,7 +1859,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 162,
+                id: 161,
                 type: 'confusable',
                 group: 'tame-tamp',
                 content: 'tamp',
@@ -2111,7 +1869,7 @@
             },
             // 补充遗漏的lame和lamp
             {
-                id: 163,
+                id: 162,
                 type: 'confusable',
                 group: 'lame-lamp',
                 content: 'lame',
@@ -2120,7 +1878,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 164,
+                id: 163,
                 type: 'confusable',
                 group: 'lame-lamp',
                 content: 'lamp',
@@ -2130,7 +1888,7 @@
             },
             // 第七十一组: pray, prey
             {
-                id: 165,
+                id: 164,
                 type: 'confusable',
                 group: 'pray-prey',
                 content: 'pray',
@@ -2139,7 +1897,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 166,
+                id: 165,
                 type: 'confusable',
                 group: 'pray-prey',
                 content: 'prey',
@@ -2149,7 +1907,7 @@
             },
             // 第七十二组: paradise, jeopardize
             {
-                id: 167,
+                id: 166,
                 type: 'confusable',
                 group: 'paradise-jeopardize',
                 content: 'paradise',
@@ -2158,7 +1916,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 168,
+                id: 167,
                 type: 'confusable',
                 group: 'paradise-jeopardize',
                 content: 'jeopardize',
@@ -2168,7 +1926,7 @@
             },
             // 第七十三组: inherit, herd
             {
-                id: 169,
+                id: 168,
                 type: 'confusable',
                 group: 'inherit-herd',
                 content: 'inherit',
@@ -2177,7 +1935,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 170,
+                id: 169,
                 type: 'confusable',
                 group: 'inherit-herd',
                 content: 'herd',
@@ -2187,7 +1945,7 @@
             },
             // 第七十四组: prevent, prevalent
             {
-                id: 171,
+                id: 170,
                 type: 'confusable',
                 group: 'prevent-prevalent',
                 content: 'prevent',
@@ -2196,7 +1954,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 172,
+                id: 171,
                 type: 'confusable',
                 group: 'prevent-prevalent',
                 content: 'prevalent',
@@ -2206,7 +1964,7 @@
             },
             // 第七十五组: emit, omit
             {
-                id: 173,
+                id: 172,
                 type: 'confusable',
                 group: 'emit-omit',
                 content: 'emit',
@@ -2215,7 +1973,7 @@
                 createdAt: '2023/12/01 10:35'
             },
             {
-                id: 174,
+                id: 173,
                 type: 'confusable',
                 group: 'emit-omit',
                 content: 'omit',
@@ -2225,7 +1983,7 @@
             },
             // 新增笔记
             {
-                id: 175,
+                id: 174,
                 type: 'word',
                 content: 'enhanced',
                 translation: '增强',
@@ -2233,7 +1991,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 176,
+                id: 175,
                 type: 'word',
                 content: 'society',
                 translation: '社会',
@@ -2241,7 +1999,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 177,
+                id: 176,
                 type: 'word',
                 content: 'despite',
                 translation: '尽管',
@@ -2249,7 +2007,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 178,
+                id: 177,
                 type: 'word',
                 content: 'numerous',
                 translation: '大量的',
@@ -2257,7 +2015,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 179,
+                id: 178,
                 type: 'word',
                 content: 'pursue',
                 translation: '追求',
@@ -2265,7 +2023,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 180,
+                id: 179,
                 type: 'phrase',
                 content: 'rich in content',
                 translation: '内容丰富',
@@ -2273,7 +2031,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 181,
+                id: 180,
                 type: 'phrase',
                 content: 'elegant language',
                 translation: '优美的语言',
@@ -2281,7 +2039,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 182,
+                id: 181,
                 type: 'phrase',
                 content: 'widely beloved',
                 translation: '深受喜爱',
@@ -2289,7 +2047,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 183,
+                id: 182,
                 type: 'phrase',
                 content: 'pay more attention to',
                 translation: '更重视',
@@ -2297,7 +2055,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 184,
+                id: 183,
                 type: 'phrase',
                 content: 'place greater emphasis on',
                 translation: '或place greater emphasis on',
@@ -2305,7 +2063,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 185,
+                id: 184,
                 type: 'phrase',
                 content: 'environmental protection',
                 translation: '环境保护',
@@ -2313,7 +2071,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 186,
+                id: 185,
                 type: 'word',
                 content: 'influence',
                 translation: '影响',
@@ -2321,7 +2079,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 187,
+                id: 186,
                 type: 'word',
                 content: 'descendants',
                 translation: '后代',
@@ -2329,7 +2087,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 188,
+                id: 187,
                 type: 'phrase',
                 content: 'multiple skills',
                 translation: '多种技能',
@@ -2337,7 +2095,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 189,
+                id: 188,
                 type: 'word',
                 content: 'crucial',
                 translation: '重要的',
@@ -2345,7 +2103,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 190,
+                id: 189,
                 type: 'phrase',
                 content: 'highly competitive',
                 translation: '激烈竞争',
@@ -2353,7 +2111,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 191,
+                id: 190,
                 type: 'phrase',
                 content: 'widespread adoption',
                 translation: '普及',
@@ -2361,7 +2119,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 192,
+                id: 191,
                 type: 'word',
                 content: 'information',
                 translation: '信息',
@@ -2369,7 +2127,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 193,
+                id: 192,
                 type: 'phrase',
                 content: 'undergo significant changes',
                 translation: '正在发生巨大变化',
@@ -2377,7 +2135,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 194,
+                id: 193,
                 type: 'phrase',
                 content: 'take measures',
                 translation: '采取措施',
@@ -2385,7 +2143,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 195,
+                id: 194,
                 type: 'phrase',
                 content: 'in order to',
                 translation: '为了',
@@ -2393,7 +2151,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 196,
+                id: 195,
                 type: 'phrase',
                 content: 'carbon emissions',
                 translation: '二氧化碳排放',
@@ -2401,7 +2159,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 197,
+                id: 196,
                 type: 'phrase',
                 content: 'innovation in technology',
                 translation: '科技创新',
@@ -2409,7 +2167,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 198,
+                id: 197,
                 type: 'phrase',
                 content: 'quality of life',
                 translation: '生活质量',
@@ -2417,7 +2175,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 199,
+                id: 198,
                 type: 'phrase',
                 content: 'give it adequate importantance',
                 translation: '给予足够的重视',
@@ -2425,7 +2183,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 200,
+                id: 199,
                 type: 'word',
                 content: 'urbanization',
                 translation: '城市化',
@@ -2433,7 +2191,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 201,
+                id: 200,
                 type: 'phrase',
                 content: 'production efficiency',
                 translation: '生产效率',
@@ -2441,7 +2199,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 202,
+                id: 201,
                 type: 'word',
                 content: 'introduce',
                 translation: '引入',
@@ -2449,7 +2207,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 203,
+                id: 202,
                 type: 'word',
                 content: 'crisis',
                 translation: '危机',
@@ -2457,7 +2215,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 204,
+                id: 203,
                 type: 'word',
                 content: 'rest',
                 translation: '其余的人',
@@ -2465,7 +2223,7 @@
                 createdAt: '2023/12/02 10:00'
             },
             {
-                id: 205,
+                id: 204,
                 type: 'word',
                 content: 'edge',
                 translation: '优势',
@@ -2474,39 +2232,6 @@
             }
         ];
         
-        // 当前标签
-        let currentTags = [];
-        
-        // 词组例句数据
-        const phraseExamples = {
-            'sure enough': 'Sure enough, he arrived right on time.',
-            'shot through with': 'The report was shot through with inaccuracies.',
-            'see off': 'We went to the airport to see him off.',
-            'drawing on': 'Drawing on her experience, she solved the problem quickly.',
-            'the brightest conclusion': 'Despite the challenges, he remained optimistic and drew the brightest conclusion.',
-            'from generation to generation': 'Traditional crafts are passed down from generation to generation.',
-            'broaden horizon': 'Traveling can greatly broaden your horizon.',
-            'pay attention to': 'You should pay attention to the details.',
-            'the script has flipped': 'In the movie, the script has flipped the traditional roles.',
-            'rich in content': 'This book is rich in content and very informative.',
-            'elegant language': 'She expressed her ideas in elegant language.',
-            'widely beloved': 'This song is widely beloved by people of all ages.',
-            'pay more attention to': 'We should pay more attention to environmental protection.',
-            'place greater emphasis on': 'The school places greater emphasis on practical skills.',
-            'environmental protection': 'Environmental protection is everyone\'s responsibility.',
-            'multiple skills': 'Modern employees need multiple skills to succeed.',
-            'highly competitive': 'The job market is highly competitive nowadays.',
-            'widespread adoption': 'There has been widespread adoption of electric vehicles.',
-            'undergo significant changes': 'The industry has undergone significant changes in the past decade.',
-            'take measures': 'The government must take measures to control pollution.',
-            'in order to': 'He studied hard in order to pass the exam.',
-            'carbon emissions': 'Reducing carbon emissions is crucial for fighting climate change.',
-            'innovation in technology': 'Innovation in technology drives economic growth.',
-            'quality of life': 'Regular exercise improves the quality of life.',
-            'give it adequate importance': 'We must give adequate importance to mental health.',
-            'production efficiency': 'Automation has greatly improved production efficiency.'
-        };
-
         // 切换展开/收起状态
         function toggleSection(sectionId) {
             const section = document.getElementById(`${sectionId}-section`);
@@ -2516,75 +2241,44 @@
             icon.classList.toggle('rotate-180');
         }
 
-        // 更新表单字段（根据笔记类型）
-        function updateFormFields() {
-            // 可以根据需要添加特定类型的字段
-        }
-
-        // 添加标签
-        function addTag() {
-            const tagInput = document.getElementById('tag-input');
-            const tagValue = tagInput.value.trim();
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNotes();
+            loadConfusableWords();
             
-            if (tagValue && !currentTags.includes(tagValue)) {
-                currentTags.push(tagValue);
-                renderTags();
-                tagInput.value = '';
-            }
-        }
+            // 表单提交事件
+            document.getElementById('note-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const type = document.getElementById('note-type').value;
+                const content = document.getElementById('note-content').value;
+                const translation = document.getElementById('note-translation').value;
+                const tagsInput = document.getElementById('note-tags').value;
+                
+                const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+                
+                addNote(type, content, translation, tags);
+                
+                // 清空表单
+                this.reset();
+            });
+        });
 
-        // 移除标签
-        function removeTag(tagToRemove) {
-            currentTags = currentTags.filter(tag => tag !== tagToRemove);
-            renderTags();
-        }
-
-        // 渲染标签
-        function renderTags() {
-            const tagsContainer = document.getElementById('tags-container');
-            tagsContainer.innerHTML = currentTags.map(tag => `
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
-                    ${tag}
-                    <button
-                        type="button"
-                        class="flex-shrink-0 ml-2 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-500 hover:bg-indigo-200 hover:text-indigo-600 focus:outline-none focus:bg-indigo-500 focus:text-white"
-                        onclick="removeTag('${tag}')"
-                    >
-                        <span class="text-xs">×</span>
-                    </button>
-                </span>
-            `).join('');
-        }
-
-        // 从表单添加笔记
-        function addNoteFromForm() {
-            const type = document.getElementById('note-type').value;
-            const content = document.getElementById('note-content').value.trim();
-            const translation = document.getElementById('note-translation').value.trim();
-            
-            if (!content) {
-                alert('请输入笔记内容');
-                return;
-            }
-            
+        // 添加笔记
+        function addNote(type, content, translation, tags) {
             const note = {
                 id: Date.now(),
                 type: type,
                 content: content,
                 translation: translation,
-                tags: [...currentTags],
+                tags: tags,
                 createdAt: new Date().toLocaleString('zh-CN')
             };
             
             notes.unshift(note);
             saveNotes();
-            loadAllContent();
-            
-            // 清空表单
-            document.getElementById('note-content').value = '';
-            document.getElementById('note-translation').value = '';
-            currentTags = [];
-            renderTags();
+            loadNotes();
+            loadConfusableWords();
         }
 
         // 删除笔记
@@ -2592,7 +2286,8 @@
             if (confirm('确定要删除这条笔记吗？')) {
                 notes = notes.filter(note => note.id !== id);
                 saveNotes();
-                loadAllContent();
+                loadNotes();
+                loadConfusableWords();
             }
         }
 
@@ -2604,144 +2299,104 @@
         // 搜索处理
         function handleSearch() {
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            loadNotesByType(searchTerm);
+            loadNotes(searchTerm);
         }
 
-        // 显示例句模态框
-        function showPhraseExample(phrase) {
-            const modal = document.getElementById('example-modal');
-            const title = modal.querySelector('.modal-title');
-            const exampleText = modal.querySelector('.modal-example-text');
-            
-            title.textContent = phrase;
-            
-            // 显示中文翻译和例句
-            const note = notes.find(n => n.content === phrase && n.type === 'phrase');
-            if (note && phraseExamples[phrase]) {
-                exampleText.innerHTML = `
-                    <div class="mb-4">
-                        <div class="text-gray-600 text-lg mb-2">例句中文含义：</div>
-                        <div class="text-gray-800 font-medium">${note.translation}</div>
-                    </div>
-                    <div>
-                        <div class="text-gray-600 text-lg mb-2">英文例句：</div>
-                        <div class="text-gray-800">${phraseExamples[phrase]}</div>
-                    </div>
-                `;
-            } else {
-                exampleText.textContent = '暂无例句';
-            }
-            
-            modal.classList.remove('hidden');
+        // 按类型分组笔记
+        function groupNotesByType(notesList) {
+            const grouped = {};
+            notesList.forEach(note => {
+                // 排除形近词，因为它们会在专门的区域显示
+                if (note.type !== 'confusable') {
+                    if (!grouped[note.type]) {
+                        grouped[note.type] = [];
+                    }
+                    grouped[note.type].push(note);
+                }
+            });
+            return grouped;
         }
 
-        // 关闭例句模态框
-        function closeExampleModal() {
-            const modal = document.getElementById('example-modal');
-            modal.classList.add('hidden');
+        // 将形近词按组分组
+        function groupConfusableWords() {
+            // 获取所有形近词
+            const confusableWords = notes.filter(note => note.type === 'confusable');
+            
+            // 按组分组
+            const grouped = {};
+            confusableWords.forEach(word => {
+                const group = word.group;
+                if (!grouped[group]) {
+                    grouped[group] = [];
+                }
+                grouped[group].push(word);
+            });
+            
+            return grouped;
         }
 
-        // 加载形近词并按组显示
+        // 加载并显示形近词
         function loadConfusableWords() {
             const container = document.getElementById('confusable-container');
             const countElement = document.getElementById('confusable-count');
             
-            // 获取所有形近词
-            const confusableNotes = notes.filter(note => note.type === 'confusable');
+            const confusableGroups = groupConfusableWords();
             
-            // 更新计数
-            const groups = {};
-            confusableNotes.forEach(note => {
-                if (!groups[note.group]) {
-                    groups[note.group] = [];
-                }
-                groups[note.group].push(note);
-            });
+            // 更新形近词组数量
+            const groupCount = Object.keys(confusableGroups).length;
+            countElement.textContent = `共 ${groupCount} 组`;
             
-            countElement.textContent = `共 ${Object.keys(groups).length} 组`;
+            if (groupCount === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无形近词</p>';
+                return;
+            }
             
             // 渲染形近词组
-            let html = '';
-            
-            for (const groupId in groups) {
-                const groupNotes = groups[groupId];
-                html += `
-                    <div class="confusable-group">
-                        <div class="confusable-group-header" onclick="toggleConfusableGroup('${groupId}')">
-                            <span class="font-bold text-gray-800 flex items-center">
-                                <svg class="w-5 h-5 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                ${groupId} (${groupNotes.length} 个)
-                            </span>
-                            <svg class="h-5 w-5 text-gray-600 transform transition-transform" 
-                                 id="confusable-arrow-${groupId}"
-                                 xmlns="http://www.w3.org/2000/svg" 
-                                 viewBox="0 0 20 20" 
-                                 fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div class="confusable-group-content" id="confusable-content-${groupId}" style="padding: 10px; max-height: none; overflow-y: visible;">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                ${groupNotes.map(note => `
-                                    <div class="confusable-word-card">
-                                        <button 
-                                            onclick="deleteNote(${note.id})"
-                                            class="delete-button text-gray-400 hover:text-red-500 transition-colors duration-200"
-                                            aria-label="删除笔记"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                            </svg>
-                                        </button>
-                                        
-                                        <div class="confusable-word-content">${note.content}</div>
-                                        <div class="confusable-word-translation">${note.translation}</div>
-                                        
-                                        <div class="confusable-word-tags">
-                                            ${note.tags.map(tag => `
-                                                <span class="confusable-word-tag">
-                                                    ${tag}
-                                                </span>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                `).join('')}
+            container.innerHTML = Object.entries(confusableGroups).map(([group, words]) => `
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-200">
+                    <h3 class="text-gray-800 mb-4 pb-2 border-b border-gray-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        形近词组 (${words.length} 个)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        ${words.map(word => `
+                            <div class="confusable-card group">
+                                <div class="flex justify-end">
+                                    <button
+                                        onclick="deleteNote(${word.id})"
+                                        class="text-gray-400 hover:text-red-500 transition-colors duration-200 opacity-0 group-hover:opacity-100"
+                                        aria-label="删除笔记"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-1">
+                                    <p class="text-gray-800 font-bold text-lg">${word.content}</p>
+                                    <p class="text-gray-600 mt-2 text-base">${word.translation}</p>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    ${word.tags.map(tag => `
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-800 border border-yellow-200">
+                                            ${tag}
+                                        </span>
+                                    `).join('')}
+                                </div>
                             </div>
-                        </div>
+                        `).join('')}
                     </div>
-                `;
-            }
-            
-            container.innerHTML = html;
-            
-            // 默认展开所有组
-            for (const groupId in groups) {
-                const content = document.getElementById(`confusable-content-${groupId}`);
-                if (content) {
-                    content.style.maxHeight = 'none';
-                    content.style.overflowY = 'visible';
-                }
-                const arrow = document.getElementById(`confusable-arrow-${groupId}`);
-                if (arrow) {
-                    arrow.classList.add('rotate-180');
-                }
-            }
+                </div>
+            `).join('');
         }
 
-        // 切换形近词组展开/收起
-        function toggleConfusableGroup(groupId) {
-            const content = document.getElementById(`confusable-content-${groupId}`);
-            const arrow = document.getElementById(`confusable-arrow-${groupId}`);
-            
-            content.classList.toggle('hidden');
-            arrow.classList.toggle('rotate-180');
-        }
-
-        // 按类型加载和显示笔记
-        function loadNotesByType(searchTerm = '') {
-            const container = document.getElementById('notes-container');
+        // 加载并显示笔记
+        function loadNotes(searchTerm = '') {
+            const container = document.getElementById('notes-by-type-container');
             
             // 过滤笔记
             let filteredNotes = notes;
@@ -2753,133 +2408,133 @@
                 );
             }
             
-            // 按类型分组（排除形近词，因为已在专门区域显示）
-            const notesByType = {
-                'word': { label: '单词', notes: [], colorClass: 'bg-blue-50 border-l-4 border-blue-500' },
-                'phrase': { label: '词组', notes: [], colorClass: 'bg-green-50 border-l-4 border-green-500' },
-                'sentence': { label: '句子', notes: [], colorClass: 'bg-purple-50 border-l-4 border-purple-500' },
-                'summary': { label: '总结', notes: [], colorClass: 'bg-indigo-50 border-l-4 border-indigo-500' }
-            };
+            // 按类型分组的笔记
+            const groupedNotes = groupNotesByType(filteredNotes);
             
-            filteredNotes.forEach(note => {
-                if (note.type !== 'confusable' && notesByType[note.type]) {
-                    notesByType[note.type].notes.push(note);
-                }
-            });
-            
-            // 渲染每个类型的笔记
-            let html = '';
-            
-            for (const type in notesByType) {
-                const typeData = notesByType[type];
-                if (typeData.notes.length > 0) {
-                    const colorClasses = {
-                        'word': 'bg-blue-100 text-blue-800',
-                        'phrase': 'bg-green-100 text-green-800',
-                        'sentence': 'bg-purple-100 text-purple-800',
-                        'summary': 'bg-indigo-100 text-indigo-800'
-                    };
-                    
-                    const typeIcons = {
-                        'word': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-                        'phrase': 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z',
-                        'sentence': 'M13 10h5M4 19V5a2 2 0 012-2h6a2 2 0 012 2v6',
-                        'summary': 'M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'
-                    };
-                    
-                    html += `
-                        <div class="bg-white rounded-2xl shadow-lg note-card">
-                            <div 
-                                class="px-6 py-4 cursor-pointer flex justify-between items-center ${typeData.colorClass}"
-                                onclick="toggleSection('${type}')"
-                            >
-                                <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 ${colorClasses[type]}">
-                                        ${typeData.label}
-                                    </span>
-                                    <span class="text-gray-600 text-base">共 ${typeData.notes.length} 条笔记</span>
-                                </h3>
-                                <svg 
-                                    class="h-5 w-5 transform transition-transform text-gray-600"
-                                    xmlns="http://www.w3.org/2000/svg" 
-                                    viewBox="0 0 20 20" 
-                                    fill="currentColor"
-                                    id="${type}-toggle-icon"
-                                >
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            
-                            <div id="${type}-section" class="expandable-section expanded">
-                                <div class="p-6 bg-gradient-to-b from-white to-gray-50">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                                        ${typeData.notes.map(note => `
-                                            <div 
-                                                class="note-card-item"
-                                                ${note.type === 'phrase' ? `onclick="showPhraseExample('${note.content}')"` : ''}
-                                                style="cursor: ${note.type === 'phrase' ? 'pointer' : 'default'}"
-                                            >
-                                                <button 
-                                                    onclick="event.stopPropagation(); deleteNote(${note.id})"
-                                                    class="delete-button text-gray-400 hover:text-red-500 transition-colors duration-200"
-                                                    aria-label="删除笔记"
-                                                >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                
-                                                <div class="note-card-content">${note.content}</div>
-                                                ${note.translation ? `<div class="note-card-translation">${note.translation}</div>` : ''}
-                                                
-                                                ${note.tags.length > 0 ? `
-                                                    <div class="note-card-tags">
-                                                        ${note.tags.map(tag => {
-                                                            let tagClass = 'note-card-tag';
-                                                            if (note.type === 'word') tagClass += ' word-note-tag';
-                                                            if (note.type === 'phrase') tagClass += ' phrase-note-tag';
-                                                            if (note.type === 'sentence') tagClass += ' sentence-note-tag';
-                                                            if (note.type === 'summary') tagClass += ' summary-note-tag';
-                                                            
-                                                            return `
-                                                                <span class="${tagClass}">
-                                                                    ${tag}
-                                                                </span>
-                                                            `;
-                                                        }).join('')}
-                                                    </div>
-                                                ` : ''}
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
+            if (Object.keys(groupedNotes).length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-lg p-12 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <h3 class="mt-2 text-lg font-medium text-gray-900">暂无笔记</h3>
+                        <p class="mt-1 text-gray-500">添加你的第一条笔记开始学习之旅</p>
+                    </div>
+                `;
+                return;
             }
             
-            container.innerHTML = html;
+            // 渲染按类型分组的笔记
+            container.innerHTML = Object.entries(groupedNotes).map(([type, notesGroup]) => `
+                <div class="bg-white rounded-2xl shadow-lg mb-8 transition-all duration-300 hover:shadow-xl overflow-hidden">
+                    <div 
+                        class="px-6 py-4 cursor-pointer flex justify-between items-center ${
+                            type === 'word' ? 'bg-blue-50 border-l-4 border-blue-500' :
+                            type === 'phrase' ? 'bg-green-50 border-l-4 border-green-500' :
+                            type === 'sentence' ? 'bg-purple-50 border-l-4 border-purple-500' :
+                            'bg-indigo-50 border-l-4 border-indigo-500'
+                        }"
+                        onclick="toggleSection('${type}')"
+                    >
+                        <h3 class="text-lg text-gray-800 flex items-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-3 ${
+                                type === 'word' ? 'bg-blue-100 text-blue-800' :
+                                type === 'phrase' ? 'bg-green-100 text-green-800' :
+                                type === 'sentence' ? 'bg-purple-100 text-purple-800' :
+                                'bg-indigo-100 text-indigo-800'
+                            }">
+                                ${getTypeLabel(type)}
+                            </span>
+                            <span class="text-gray-600 text-base">共 ${notesGroup.length} 条笔记</span>
+                        </h3>
+                        <svg 
+                            class="h-5 w-5 transform transition-transform ${
+                                type === 'word' ? 'text-blue-600' :
+                                type === 'phrase' ? 'text-green-600' :
+                                type === 'sentence' ? 'text-purple-600' :
+                                'text-indigo-600'
+                            }"
+                            xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 20 20" 
+                            fill="currentColor"
+                            id="${type}-toggle-icon"
+                        >
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    
+                    <div id="${type}-section" class="expandable-section expanded">
+                        <div class="p-6 bg-gradient-to-b from-white to-gray-50">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                                ${notesGroup.map(note => `
+                                    <div 
+                                        class="rounded-2xl bg-gradient-to-br from-white to-gray-50 p-5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 group"
+                                    >
+                                        <div class="flex justify-end">
+                                            <button
+                                                onclick="event.stopPropagation(); deleteNote(${note.id});"
+                                                class="text-gray-400 hover:text-red-500 transition-colors duration-200 opacity-0 group-hover:opacity-100"
+                                                aria-label="删除笔记"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="mt-1">
+                                            <p class="text-gray-800 font-bold text-lg">${note.content}</p>
+                                            ${note.translation ? `<p class="text-gray-600 mt-2 text-base">${note.translation}</p>` : ''}
+                                        </div>
+                                        
+                                        <div class="mt-4 flex flex-wrap gap-2">
+                                            ${note.tags.map(tag => `
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                                                    type === 'word' ? 'bg-blue-100 text-blue-800 border border-blue-200' :
+                                                    type === 'phrase' ? 'bg-green-100 text-green-800 border border-green-200' :
+                                                    type === 'sentence' ? 'bg-purple-100 text-purple-800 border border-purple-200' :
+                                                    'bg-indigo-100 text-indigo-800 border border-indigo-200'
+                                                }">
+                                                    ${tag}
+                                                </span>
+                                            `).join('')}
+                                        </div>
+                                        
+                                        <div class="mt-3 text-xs text-gray-500">${note.createdAt}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // 加载所有内容
-        function loadAllContent() {
-            loadConfusableWords();
-            loadNotesByType();
-        }
-
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            loadAllContent();
+        // 获取类型标签文本
+        function getTypeLabel(type) {
+            const labels = {
+                'word': '单词',
+                'phrase': '词组',
+                'sentence': '句子',
+                'summary': '总结',
+                'confusable': '形近词'
+            };
             
-            // 点击模态框外部关闭
-            document.getElementById('example-modal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeExampleModal();
-                }
-            });
-        });
+            return labels[type] || '其他';
+        }
+        
+        // 获取类型样式类
+        function getTypeClass(type) {
+            const classes = {
+                'word': 'word-tag',
+                'phrase': 'phrase-tag',
+                'sentence': 'sentence-tag',
+                'summary': 'summary-tag',
+                'confusable': 'confusable-tag'
+            };
+            
+            return classes[type] || 'word-tag';
+        }
     </script>
 </body>
-</html>
 </html>

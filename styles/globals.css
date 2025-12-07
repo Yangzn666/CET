@@ -1,0 +1,15 @@
+@import 'fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'FZCuHei', sans-serif;
+  font-weight: normal;
+}
+
+/* 确保所有元素都不使用加粗字体 */
+* {
+  font-weight: normal !important;
+}
