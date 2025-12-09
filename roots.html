@@ -1060,7 +1060,7 @@
 
         // 显示词根详情
         function showRootDetails(root) {
-          document.getElementById('modal-root').textContent = root.root;
+          document.getElementById('modal-root').innerHTML = `<span class="font-normal">${root.root}</span>`;
           document.getElementById('modal-meaning').textContent = root.meaning;
           
           const vocabList = document.getElementById('modal-vocab-list');
@@ -1071,7 +1071,7 @@
               const div = document.createElement('div');
               div.className = 'p-4 bg-gray-50 rounded-xl border border-gray-200';
               div.innerHTML = `
-                <div class="font-bold text-lg text-indigo-700">${vocab.word}</div>
+                <div class="font-normal text-lg text-indigo-700">${vocab.word}</div>
                 <div class="text-gray-600 mt-1">${vocab.meaning}</div>
                 <div class="text-gray-500 text-sm mt-2 italic">"${vocab.example}"</div>
               `;
@@ -1155,7 +1155,7 @@
                           onclick="showRootDetails(${JSON.stringify(item).replace(/"/g, '&quot;')})"
                         >
                           <div class="mt-1">
-                            <p class="text-gray-800 font-bold text-lg">${item.root}</p>
+                            <p class="text-gray-800 font-normal text-lg">${item.root}</p>
                             <p class="text-gray-600 mt-2 text-base">${item.meaning}</p>
                           </div>
                         </div>
